@@ -1,0 +1,173 @@
+                .header-nav.fixed {
+                    position: fixed;
+                    top: 0;
+                    z-index: 213231;
+                    width: 100%;
+                }
+                
+                .sticky .main-content {
+                    margin-top: 73px;
+                }
+                
+                .table1 {
+                    background: #3A5197;
+                    color: white;
+                }
+                
+                .sems_table {
+                    box-shadow: 0 3px 5px rgba(0, 0, 0, .2);
+                    border-collapse: collapse;
+                    border-color: #eee;
+                    border: 1px solid #ccc;
+                    margin-bottom: 24px;
+                    background-color: transparent;
+                    font-family: 'Roboto', sans-serif;
+                    font-size: 14px;
+                    color: #777777;
+                    line-height: 1.7em;
+                }
+                
+                marquee {
+                    height: 14px;
+                    font-size: 14px;
+                    font-family: 'Roboto', sans-serif;
+                    margin-bottom: -12px;
+                    padding-bottom: 34px;
+                }
+                
+                .box {
+                    height: 99px;
+                    overflow: hidden;
+                }
+                
+                .course_img {
+                    width: auto;
+                    height: 450px;
+                    overflow: hidden;
+                }
+                
+                .dep_box {
+                    height: 350px;
+                    overflow: hidden;
+                }
+                
+                .dropdown {
+                    right: auto;
+                    display: none;
+                }
+                
+                .dropdown:hover {
+                    right: auto;
+                    display: inline-block;
+                }
+                
+                .Heading_all {
+                    background: #010b8a;
+                }
+                
+                .office {
+                    padding: 0px 0px 0px 5px;
+                    color: white;
+                }
+                
+                .padding {
+                    margin-top: 30px;
+                }
+                
+                .add_field_button {
+                    background: #504242;
+                    border: none;
+                    color: white;
+                    margin-top: 4px;
+                    border-radius: 7px;
+                    padding: 8px;
+                }
+                
+                .add_field_button_exp {
+                    background: #504242;
+                    border: none;
+                    color: white;
+                    margin-top: 4px;
+                    border-radius: 7px;
+                    padding: 8px;
+                }
+                
+                @media only screen and (max-width: 600px) {
+                    .margin1 {
+                        margin-left: 0px !important;
+                    }
+                    .margin2 {
+                        margin-left: 0px !important;
+                    }
+                    .userhead_toggle {
+                        margin: 31px 25px 0px 0px !important;
+                    }
+                }
+                
+                .bg-blue {
+                    background-color: #337ab7 !important;
+                }
+                
+                .menu {
+                    max-height: 400px;
+                    padding: 32px;
+                }
+                
+                .navbar-nav>li>a {
+                    padding: 8px 16px;
+                    border-radius: 30px;
+                    color: #ffffff;
+                    font-size: 13px;
+                    font-weight: 600;
+                    display: inline-block;
+                    font-family: 'Open Sans', sans-serif;
+                }
+                
+                .nav>li>a:hover {
+                    text-decoration: none;
+                    background-color: #000000;
+                }
+                
+                .userhead_toggle {
+                    background-color: black !important;
+                    border: 1px solid black !important;
+                }
+                
+                .navbar-toggle .icon-bar {
+                    background: white !important;
+                }
+                
+                .navbar-right li:hover ul {
+                    display: block;
+                }
+                
+                .nav>ul>li>a:hover {
+                    text-decoration: none;
+                    background-color: #000000;
+                }
+                
+                .menuzord-menu li:hover ul {
+                    display: block;
+                }
+                
+                .menuzord-menu ul.dropdown li:hover ul.dropdown {
+                    display: block;
+                }
+                
+                .menuzord .menuzord-menu ul.dropdown li:hover>a {
+                    background: #010b8a !important;
+                    color: #fff !important;
+                }
+                
+                .menuzord li:hover .megamenu {
+                    display: block;
+                }
+                
+                .userhead_toggle2 {
+                    background-color: black !important;
+                    border: 1px solid black !important;
+                }
+                
+                .post .entry-header {
+                    padding-bottom: 7px !important;
+                }
