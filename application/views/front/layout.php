@@ -66,6 +66,7 @@ include('page/footer.php');
 ?>
 </div>
 <script src="<?php echo base_url() ?>templates/front/js/owl-carousel.js"></script>
+
 <script src="<?php echo base_url() ?>templates/front/js/custom.js"></script>
 <script src="<?php echo base_url() ?>templates/front/js/lightbox.js"></script>
 <script src="<?php echo base_url() ?>templates/front/js/isotope.pkgd.min.js"></script>
@@ -81,6 +82,7 @@ if(isset($form_validation) == "validation"){
 <?php
     if(isset($page_assets) == "home-index"){
 ?>
+
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>templates/front/js/revolution-slider/js/extensions/revolution.extension.actions.min.js"></script>
 <script type="text/javascript" src="<?php echo base_url() ?>templates/front/js/revolution-slider/js/extensions/revolution.extension.carousel.min.js"></script>

@@ -74,8 +74,8 @@
           </div>
           <div class="col-md-6">
             <blockquote>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-              <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+              <p>Sitarun Se Aage Jahan Aur B Hain.</p>
+              <footer>Mr.<cite title="Source Title">Qaleem Raza</cite></footer>
             </blockquote>
           </div>
         </div>

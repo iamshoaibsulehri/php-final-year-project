@@ -32,14 +32,15 @@
               <div class="row">
                 <div class="col-sm-4 pr-0 pr-sm-15">
                   <div class="thumb p-15">
-                  <a href="<?php echo base_url() ?>home/event_detail/<?php echo $event['event_id'] ?>">  <img class="img-fullwidth" src="<?php echo base_url() ?>uploads/events/<?php echo $event['event_photo'] ?>" alt="..."></a>
+                  <a href="<?php echo base_url() ?>home/event_detail/<?php echo $event['event_id'] ?>">  <img class="img-fullwidth" src="<?php echo base_url() ?>uploads/events/<?php echo $event['event_photo'] ?>" alt="...">
                   </div>
                 </div>
                 <div class="col-sm-4 pl-0 pl-sm-15">
                   <div class="event-details p-15 mt-20">
                     <h4 class="media-heading text-uppercase font-weight-500"><?php echo $event['event_title'] ?></h4>
                     <p><?php $limit = $event['event_description']; echo word_limiter($limit, 10);?></p>
-                    <a href="#" class="btn btn-flat btn-dark btn-theme-colored btn-sm">Details <i class="fa fa-angle-double-right"></i></a>
+                    </a>
+                    <a href="<?php echo base_url() ?>home/event_detail/<?php echo $event['event_id'] ?>" class="btn btn-flat btn-dark btn-theme-colored btn-sm">Details <i class="fa fa-angle-double-right"></i></a>
                   </div>
                 </div>
                 <div class="col-sm-4">
@@ -110,31 +111,27 @@
                   </ul>
                 </div>
               </div>
-              <div class="widget">
-                <h5 class="widget-title line-bottom">Latest News</h5>
-                <div class="latest-posts">
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Sustainable Construction</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Industrial Coatings</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
-                  <article class="post media-post clearfix pb-0 mb-10">
-                    <a class="post-thumb" href="#"><img src="https://placehold.it/75x75" alt=""></a>
-                    <div class="post-right">
-                      <h5 class="post-title mt-0"><a href="#">Storefront Installations</a></h5>
-                      <p>Lorem ipsum dolor sit amet adipisicing elit...</p>
-                    </div>
-                  </article>
+              <div class="widget dark">
+            <h4 class="widget-title line-bottom-theme-colored-2">Top News</h4>
+            <div class="latest-posts">
+            <?php 
+            $this->db->limit(3);
+            $posts = $this->db->get('posts')->result_array();
+            foreach($posts as $post)
+            {
+            ?>
+              <article class="post media-post clearfix pb-0 mb-10">
+                <a class="post-thumb" href="#"><img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" style="height:55px; <width:80></width:80>px" alt=""></a>
+                <div class="post-right">
+                  <h5 class="post-title mt-0 mb-5"><a href="#"><?php $limit = $post['post_description']; echo word_limiter($limit, 4);?></a></h5>
+                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
                 </div>
+              </article>
+              <?php
+            }
+              ?>
+            </div>
+          </div>
               </div>
               <div class="widget">
                 <h5 class="widget-title line-bottom">Photos from Flickr</h5>

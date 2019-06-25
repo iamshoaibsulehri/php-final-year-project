@@ -45,10 +45,38 @@
       <div class="container pb-70">
         <div class="section-content">
           <div class="row">
-            <div class="col-md-5">
-              <img class="img-fullwidth maxwidth500" src="<?php echo base_url()?>templates/front/images/about/u1.png" alt="">
-            </div>
             <div class="col-md-4">
+            <div class="widget">
+            <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">Latest <span class="text-theme-colored2">News</span></h2>
+            <div class="double-line-bottom-theme-colored-2"></div>
+            
+            <div class="latest-posts">
+            
+            <?php 
+            $this->db->limit(5);
+            $posts = $this->db->get('posts')->result_array();
+            foreach($posts as $post)
+            {
+            ?>
+           
+              <article class="post media-post clearfix pb-0 mb-10">
+                <a class="post-thumb" href="#"><img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" style="height:55px; <width:80></width:80>px" alt=""></a>
+                <div class="post-right">
+                  <h5 class="post-title mt-0 mb-5"><a href="#"><?php $limit = $post['post_description']; echo word_limiter($limit, 10);?></a></h5>
+                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                </div>
+              </article>
+            
+              <?php
+            }
+              ?>
+              <a href="<?php echo base_url()?>home/about_us" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-15">Show All</a>
+            </div>
+         
+          </div>
+         
+            </div>
+            <div class="col-md-5">
               <h2 class="text-uppercasetext-theme-colored mt-0 mt-sm-30">About <span class="text-theme-colored2">USKT</span></h2>
               <div class="double-line-bottom-theme-colored-2"></div>
               <p>The establishment of the University of Sialkot has introduced a new era in the domain of higher education in the fertile region of Sialkot. Though this University is relatively young but we are confident that with commitment and sincere efforts we shall be able to achieve excellence in research and education.
@@ -242,7 +270,9 @@
                       
     $date = new DateTime($event['start_time']);
     echo $date->format('h:i a');
-    ?> - <?php echo $event['end_time'];?></span>
+    ?> - <?php 
+    $date = new DateTime($event['end_time']);
+    echo $date->format('h:i a');?></span>
 	                    <span class="text-gray-darkgray"><i class="fa fa-map-marker mr-5 text-theme-colored2"></i> <?php echo $event['event_location'];?></span>
 	                    <p class="mt-5"><?php $limit = $event['event_description']; echo word_limiter($limit, 10);?></p>
 	                  </div>

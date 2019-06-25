@@ -1195,7 +1195,7 @@ $(document).ready(function(){
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="qaulification">Qualification</label>
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"   id="qaulification" name="qaulification">
-                          <option value="">--- Select ---</option>
+                          <option value="0">--- Select ---</option>
                           <option value="Male">Q1</option>
                           <option value="Female">Q2</option>
                         </select>
@@ -1213,7 +1213,7 @@ $(document).ready(function(){
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="institute">Institute</label>
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"   id="institute" name="institute">
-                          <option value="">--- Select ---</option>
+                          <option value="0">--- Select ---</option>
                           <option value="u1">u1</option>
                           <option value="u2">u2</option>
                         </select>
@@ -1258,7 +1258,7 @@ $(document).ready(function(){
                     <div class="form-group">
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="obtainedmarks">Obtained Marks</label>
                       <div class="col-md-7">
-                        <input id="textinput" name="obtainedmarks" type="obtainedmarks" placeholder="obtained marks " value="0" class="form-control input-md" >
+                        <input id="textinput" name="obtainedmarks" type="number" placeholder="obtained marks " value="0" class="form-control input-md" >
                       </div>
                     </div>
                   </div>

@@ -17,18 +17,64 @@
         </div>
       </div>
     </section>
-
+    <br>
+    <section id="team" class="bg-silver-deep" style="margin-top:-22px">
+    <div class="container">
+    <div class="col-md-3">
+    
+    <div class="search1" style="border-bottom: 1px solid black;">
+    <div class="sidebar sidebar-right mt-sm-30">
+              <div class="widget">
+                <h5 class="widget-title line-bottom">Select Department</h5>
+                <div class="search-form">
+                  <form>
+                    <div class="input-group">
+                      <input type="text" placeholder="Click to Search" name="q" class="form-control search-input">
+                      <span class="input-group-btn">
+                      <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              </div>
+    </div>
+    </div>
+    <div class="col-md-3">
+    
+    <div class="search1" style="border-bottom: 1px solid black;">
+    <div class="sidebar sidebar-right mt-sm-30">
+              <div class="widget">
+                <h5 class="widget-title line-bottom">Enter Teacher Name</h5>
+                <div class="search-form">
+                  <form>
+                    <div class="input-group">
+                      <input type="text" placeholder="Click to Search" name="q" class="form-control search-input">
+                      <span class="input-group-btn">
+                      <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
+                      </span>
+                    </div>
+                  </form>
+                </div>
+              </div>
+              </div>
+    </div>
+    </div>
+    </div>
+</section>
     <!-- Section: Team -->
     <section id="team" class="bg-silver-deep">
       <div class="container">
+   
         <div class="row mtli-row-clearfix">
          
           <?php 
            
-           $teacher = $this->db->get('teacher')->result_array();
+          if($teacher){
           
            foreach($teacher as $teach)
            {
+          
            ?>
            <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="team-members border-bottom-theme-colored2px text-center maxwidth400 mb-30">
@@ -50,8 +96,23 @@
           </div>
           <?php
            }
+          }else{
            ?>
+           No Record Found!
+           <?php
+          }
+          ?>
         </div>
+        <div class="row">
+              <div class="col-sm-12">
+                <nav>
+                  <?php
+                  echo $links;
+                  ?>
+                 
+                </nav>
+              </div>
+            </div>
       </div>
     </section>
 
@@ -89,12 +150,9 @@
             </div>
           </div>
         </div>
+        
       </div>
     </section>
-
-
-
-        
     <section class="clients bg-theme-colored2">
       <div class="container pt-10 pb-10">
         <div class="row">

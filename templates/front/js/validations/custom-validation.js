@@ -30,6 +30,12 @@ $(function() {
         });
 
     });
+    
+    $('#btnSave2').click(function() {
+
+        $('#myTab a[href="#tab3"]').tab('show');
+        $('html, body').animate({ scrollTop: $('.main-content').position().top }, 'slow');
+    });
 
     $('#button2').click(function() {
         // validate and process form here  
@@ -50,7 +56,7 @@ $(function() {
 
                     cache: false,
                     processData: false,
-                    beforeSend: function() {
+                    beforeSend: function(data) {
                         $result = $('select[name="result"]').val();
                         $qaulification = $('select[name="qaulification"]').val();
                         $institute = $('select[name="institute"]').val();
@@ -58,14 +64,15 @@ $(function() {
                         $totalmarks = $('input[name="totalmarks"]').val();
                         $obtainedmarks = $('input[name="obtainedmarks"]').val();
                         $percentage = $('input[name="percentage"]').val();
-                        $html = "<tr><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
-                            "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td></td></tr>"
-                        $(".acca-table tbody").append($html);
                         $('#form2 input[type="text"], #form2 input[type="number"]').val("");
                         $('#form2 select option[value="0"]').attr("selected", 'selected');
                     },
                     success: function(data) {
-
+                        $st_id = data;
+                        $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
+                        "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td></td>" +
+                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';  $(".acca-table tbody").append($html);
+                     
                     }
                 });
 
@@ -76,6 +83,9 @@ $(function() {
 
 
     });
+
+   
+    
     $('#button-update').click(function() {
 
         // validate and process form here  

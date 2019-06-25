@@ -393,8 +393,9 @@ if($row_id != ""){
   $this->db->update('academics',$datap);
 }else{
 $this->db->insert('academics', $datap);
+$id = $this->db->insert_id(); 
+echo $id;
 }  
-echo '<div class="alert alert-success">Record Saved.</div>';
 exit;
   }
  
@@ -514,6 +515,46 @@ public function security_department(){
    {
     $data['page_name'] = 'teachers/teacher_list';
     $data['page_title'] = 'All Teachers';
+    $this->load->library('pagination');
+    if(isset( $_GET['q'])){
+      $this->db->like('t_name',$_GET['q']);
+      $teacher = $this->db->get('teacher');
+      $count  = $teacher->num_rows();
+    }else{
+  $count = $this->db->count_all("teacher");
+    }
+
+        $config = array();
+        $config["base_url"] = base_url('home/teacher');
+        $config['total_rows'] =  $count;//here we will count all the data from the table
+        $config['per_page'] = 4;//number of data to be shown on single page
+        $config["uri_segment"] = 3;
+        $config['full_tag_open']    = "<ul class='pagination theme-colored pull-right xs-pull-center mb-xs-40'>";
+        $config['full_tag_close']   = "</ul>";
+        $config['num_tag_open']     = '<li>';
+        $config['num_tag_close']    = '</li>';
+        $config['cur_tag_open']     = "<li class='active'><a href='#'>";
+        $config['cur_tag_close']    = "</a></li>";
+        $config['next_tag_open']    = "<li>";
+        $config['next_tagl_close']  = "</li>";
+        $config['prev_tag_open']    = "<li>";
+        $config['prev_tagl_close']  = "</li>";
+        $config['first_tag_open']   = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open']    = "<li>";
+        $config['last_tagl_close']  = "</li>";
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $this->db->limit($config['per_page'], $page);
+        if(isset( $_GET['q'])){
+          $this->db->like('t_name',$_GET['q']);
+        }
+        $data['teacher']= $this->db->get('teacher')->result_array();
+        $data["links"] = $this->pagination->create_links();//create the link for pagination
+
+   
+
+
     $this->load->view('front/layout',$data); 
    }
    public function teacher_detail($id)

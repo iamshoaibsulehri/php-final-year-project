@@ -1,6 +1,9 @@
 
      <style>
 
+
+<style>
+
 /* Active/hover state (menu items) */
 .menuzord-menu2 > li.active > a,
 .menuzord-menu2 > li:hover > a{
@@ -9,7 +12,18 @@
  
 }
 
-/* Dropdown */
+.top.styled-icons.icon-sm a{
+    font-size: 15px;
+    height: 30px;
+    line-height: 30px;
+    margin: 2px 0px 3px 12px;
+    width: 100% !important;
+    }
+
+.top li a:hover{
+ background:white;
+ color:black !important;
+    }
 
 
 /* Mobile mode (Responsive mode) */
@@ -21,6 +35,57 @@
 	.menuzord-responsive .menuzord-menu > li > a{
 		padding: 12px 20px !important;
 	}
+}
+
+/*
+  Simple paper fold with hover over effect
+
+*/
+
+
+
+h1 {
+  
+}
+
+/*
+  nav link items
+*/
+.fold{
+  
+
+  height: 230px;
+  padding: 25px 25px;
+  position: relative;
+  font-size: 90%;
+  text-decoration: none;
+  color: #fff; 
+  background: #fff;
+  transition: all ease .5s;
+}
+
+/*
+  paper fold corner
+*/
+
+.fold:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-style: solid;
+ 
+  border-color: #ddd #34495E;
+  transition: all ease .5s;
+}
+
+/*
+  on li hover make paper fold larger
+*/
+.fold:hover:before {
+  border-width: 0 60px 60px 0;
+  border-color: #eee #f5f5f5;
+  
 }
 </style>
      
@@ -87,7 +152,7 @@
           </div>
           <div class="col-md-4 pr-0">
             <div class="widget">
-            <ul class="menuzord-menu2  styled-icons icon-sm pull-right flip sm-pull-none sm-text-center effect mt-5">
+            <ul class="menuzord-menu2  top styled-icons icon-sm pull-right flip sm-pull-none sm-text-center effect mt-5">
                <li><a href="<?php echo base_url()?>home/under_construction" class="text-white">Downloads</a></li>
                 <li><a href="<?php echo base_url()?>home/user_registration" class="text-white">Admission</a></li>
                 <li><a href="<?php echo base_url()?>home/under_construction" class="text-white">Career</a></li>
@@ -129,13 +194,13 @@
               <li><a href="#">ACADEMICS <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
               
                 <div class="megamenu megamenu-bg-img">
-                  <div class="megamenu-row">
-                    <div class="col2">
+                <div class="megamenu-row">
+                    <div class="col3">
                      
-                      <div class="widget" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/p4.png);">
-                        <div class="box" style="height:140px;  ">
-                         <h4 style="text-align:center">ACADEMICS</h4>
-                         <p  style="text-align:center">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
+                      <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
+                        <div class="box" style="height:240px;margin-top: 24px;">
+                         <h4 style="text-align:center; color:white;">ACADEMICS</h4>
+                         <p  style="text-align:center; color:white;">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
                           </div>
                       </div>
                     </div>
@@ -227,6 +292,7 @@
                   </div>
                 </div>
               </li>
+
 
               <li><a href="<?php echo base_url()?>home/contact_us">CONTACT US</a></li>
               <li><a href="<?php echo base_url()?>home/event">EVENTS</a></li>
