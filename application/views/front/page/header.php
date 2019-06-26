@@ -288,40 +288,83 @@ h1 {
             <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Statutory Offices</h4>
           
             <article class="post clearfix">
-            <?php 
-            
-            $office = $this->db->get_where('pages', array('parent_id'=>1))->result_array();
-            foreach($office as $offi)
-            {
-              ?>
+           
             <div class="entry-header">
-          <li><a href="#"><?php echo $offi['page_title']?></a></li>
+          <li><a href="<?php echo base_url()?>home/vice_chancellors_office">Vice Chancellor Office</a></li>
           </div>
-          <div class="entry-content">
-          <?php
-            }
-            ?>
+          <div class="entry-content">  
             </article>
+            <article class="post clearfix">
+           
+           <div class="entry-header">
+         <li><a href="<?php echo base_url()?>home/chairman_office">Chairman Office</a></li>
+         </div>
+         <div class="entry-content">  
+           </article>
+           <article class="post clearfix">
+           
+           <div class="entry-header">
+         <li><a href="<?php echo base_url()?>home/registrar_office">Registrar Office</a></li>
+         </div>
+         <div class="entry-content">  
+           </article>
+           <article class="post clearfix">
+           
+           <div class="entry-header">
+         <li><a href="<?php echo base_url()?>home/controller_examination">Controller Examination</a></li>
+         </div>
+         <div class="entry-content">  
+           </article>
+           <article class="post clearfix">
+           
+           <div class="entry-header">
+         <li><a href="<?php echo base_url()?>home/treasures">Treasures</a></li>
+         </div>
+         <div class="entry-content">  
+           </article>
+           
            
           </div>
           <div class="col3">
+
             <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Management Offices</h4>
+           
             <article class="post clearfix">
-            <?php 
-            
-            $office = $this->db->get_where('pages', array('parent_id'=>2))->result_array();
-            foreach($office as $offi)
-            {
-              ?>
+           
             <div class="entry-header">
-              <li><a href="#"><?php echo $offi['page_title']?></a></li>
+              <li> <a href="<?php echo base_url()?>home/human_resources">Human Resources</a></li>
             </div>
             <div class="entry-content">
-            <?php
-            }
-            ?>
               </article>
+              
+              <article class="post clearfix">
+           
+           <div class="entry-header">
+             <li> <a href="<?php echo base_url()?>home/IT_center">Information Technology Center</a></li>
+           </div>
+           <div class="entry-content">
+             </article>
+
+             <article class="post clearfix">
+           
+           <div class="entry-header">
+             <li> <a href="<?php echo base_url()?>home/security_department">Security Department</a></li>
+           </div>
+           <div class="entry-content">
+             </article>
+
+             <article class="post clearfix">
+           
+           <div class="entry-header">
+             <li> <a href="<?php echo base_url()?>home/admission_office">Admission Office</a></li>
+           </div>
+           <div class="entry-content">
+             </article>
+              
             </div>
+
+
+
             <div class="col3">
            
               <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>

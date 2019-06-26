@@ -1152,7 +1152,7 @@ $(document).ready(function(){
   </div>
   <!-- academic detail -->
   <div class="tab-pane " id="tab2">
-    <form action="<?php echo base_url() ?>home/registration_form/academic_info" method="POST" class="cmxform" id="form2">
+    <form action="<?php echo base_url() ?>home/registration_form/academic_info" accept-charset="utf-8" method="POST" class="cmxform" enctype="multipart/form-data" id="form2">
     <input type="hidden" name="st_id" value=""/>
       <div class="container">
         <h4 class="line-bottom-theme-colored-2 mb-15">Please Enter Complete Information</h4>
@@ -1212,12 +1212,8 @@ $(document).ready(function(){
                     <div class="form-group">
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="institute">Institute</label>
                       <div class="col-md-7">
-                        <select class="form-control" data-val="true"   id="institute" name="institute">
-                          <option value="0">--- Select ---</option>
-                          <option value="u1">u1</option>
-                          <option value="u2">u2</option>
-                        </select>
-                      </div>
+                        
+                        <input id="textinput" name="institute" type="text" placeholder="institute" class="form-control input-md required" id="institute">
                     </div>
                   </div>
                   <!-- Text input-->
@@ -1294,10 +1290,11 @@ $(document).ready(function(){
                   <!-- Text input-->
                   <div class="col-md-6">
                     <div class="form-group">
-                      <div class="col-sm-offset-2 col-sm-7">
-                        <input type="submit" id="button2" name="button2" value="Add Qaulification" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
-                        <input type="submit" id="button-update" name="button-update" style="display: none;" value="Update Qaulification" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
+                      <div class="col-sm-offset-2 col-sm-7 btn-ccc">
+                      <input type="submit" id="button-update" name="button-update" style="display: none;" value="Update Qaulification" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
                     
+                        <input type="submit" id="button2" name="button2" value="Add Qaulification" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
+                       
                       </div>
                     </div>
                   </div>
@@ -1360,7 +1357,7 @@ $(document).ready(function(){
               <div class="col-sm-6">
                 <div class="form-group" style="margin-top: 40px;">
                   <div class="col-sm-offset-2 col-sm-7">
-                    <input type="submit" id="btnSave2"  value="Save &amp; Continue" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
+                    <input type="" id="btnSave2"  value="Save &amp; Continue" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
                   </div>
                 </div>
               </div>
@@ -1374,8 +1371,9 @@ $(document).ready(function(){
     </form>
     <legend></legend>
   </div>
+  </div>
   <div class="tab-pane " id="tab3">
-    <form action="" method="POST" >
+  <form action="<?php echo base_url() ?>home/registration_form/program_priority" method="POST" class="cmxform" id="form3">
       <div class="container">
         <h4 class="line-bottom-theme-colored-2 mb-15">Please Enter Complete Information</h4>
         <div class="box box-primary pt-20 mb-15 " style="width:100%; height: 100%;" >
@@ -1398,9 +1396,12 @@ $(document).ready(function(){
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="sdepartment">Select Faculty</label>
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"   id="Faculty" name="faculty">
-                          <option value="">--- Select ---</option>
-                          <option value="Male">Faculty</option>
-                          <option value="Female">Faculty</option>
+                         <?php $data = $this->db->get('faculty')->result_array();
+                         foreach($data as $dt){
+                         ?>
+                            <option value="<?php echo $dt['f_id'] ?>"><?php echo $dt['f_title']?></option>
+                       <?php
+                       }   ?>
                         </select>
                       </div>
                     </div>
@@ -1411,8 +1412,12 @@ $(document).ready(function(){
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="Department ">Select Department</label>
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"  id="Department" name="department">
-                          <option value="">--- Select ---</option>
-                          <option value="single">Dep</option>
+                        <?php echo $dep = $this->db->get('department')->result_array();
+                         foreach($dep as $de){
+                         ?>
+                            <option value="<?php echo $de['d_id'] ?>"><?php echo $de['d_name']?></option>
+                       <?php
+                       }   ?>
                         </select>
                       </div>
                     </div>
@@ -1426,9 +1431,12 @@ $(document).ready(function(){
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="Program">Select Program</label>
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"   id="Program" name="program">
-                          <option value="">--- Select ---</option>
-                          <option value="Male">Program</option>
-                          <option value="Female">Program</option>
+                        <?php echo $program = $this->db->get('program')->result_array();
+                         foreach($program as $pro){
+                         ?>
+                            <option value="<?php echo $pro['p_id'] ?>"><?php echo $pro['p_name']?></option>
+                       <?php
+                       }   ?>
                         </select>
                       </div>
                     </div>
@@ -1446,7 +1454,7 @@ $(document).ready(function(){
               <div class="col-sm-6">
                 <div class="form-group" style="margin-top: 40px;">
                   <div class="col-sm-offset-2 col-sm-7">
-                    <input type="submit" id="btnSave2"  value="Save &amp; Continue" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
+                    <input type="submit" id="button_program"  value="Save &amp; Continue" class="btn btn-primary pull-right" style="width: 210px;     margin-bottom: 24px;     margin-right: -30px;">
                   </div>
                 </div>
               </div>
@@ -1463,7 +1471,12 @@ $(document).ready(function(){
     <div class="container">
       <h4 class="line-bottom-theme-colored-2 mb-15">Pay Your Challan Form</h4>
       <div class="box box-primary pt-20 mb-15 " style="width:100%; height: 100%;" >
-        <div class="center" style="text-align:center">Your Challan Form</div>
+        <div class="center" style="text-align:center"><p>Thanks For Submitting your Application<br>Your Challan Form Has been Emailed to you!
+        Please Check your Email box.<br><br>
+        <span class="color" style="color:red;"> Go to your: </span>  <a href="<?php echo base_url()?>home/user_profile"><button type="" class="btn btn-primary " style="font-size: 14px; padding: 8px 22px; line-height: 1.38; background:transparent; color:black; border:3px solid blue;">Profile</button></a><br><br>
+      
+        <br>USKT - UNIVERSITY OF SIALKOT<br>Regards</p>
+        </div>
       </div>
     </div>
   </div>

@@ -352,6 +352,7 @@ exit;
     
     if($para1 == "academic_info")
     {
+     
       $datap['s_result_status']= $this->input->post('result');
       $datap['s_qaulification']= $this->input->post('qaulification');
       $datap['s_institute']= $this->input->post('institute');
@@ -361,23 +362,24 @@ exit;
       $datap['s_percentage']= $this->input->post('percentage');
 
       if($_POST){
+        
         $config['upload_path']          = './uploads/certificates/';
-        $config['allowed_types']        = 'pdf|docx|jpeg';
+        $config['allowed_types']        = 'pdf|docx|jpeg|JPG|jpg|png';
         $config['max_size']             = 10000000;
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
         if ( ! $this->upload->do_upload('proof'))
         {
             $error = array('error' => $this->upload->display_errors());
-               
+               print_r($error );
+               die();
                }
         else
         {
            $file = array('upload_data' => $this->upload->data());
        
-           $datap['s_doc_proof']= $photo['upload_data']['file_name'];
-           echo   $datap;
-           die();
+           $datap['s_doc_proof']=   $file['upload_data']['file_name'];
+           
                }
       
       }
@@ -386,8 +388,10 @@ exit;
 $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
 $student_id=$detail[0]['student_id'];
 $datap['student_id']= $student_id;
+
 // sending in where ID = Session Id
 $row_id  = $this->input->post('st_id');
+echo $row_id;
 if($row_id != ""){
   $this->db->where('acad_id',$row_id);
   $this->db->update('academics',$datap);
@@ -424,9 +428,27 @@ exit;
   $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
   $student_id=$detail[0]['student_id'];
   $data['student_id']= $student_id;
+
+
+  if($para1 == 'program_priority')
+  {
+    $datap['faculty']= $this->input->post('faculty');
+      $datap['department']= $this->input->post('department');
+      $datap['program']= $this->input->post('program');
+   
+
+    $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+    $id=$detail[0]['student_id'];
+   $this->db->where('student_id',$id);
+   
+   $this->db->update('registration_form' , $datap);
+      echo '<div class="alert alert-success">Record Saved.</div>';
+   exit;
+}
  
   $this->load->view('front/layoutu', $data);
 }
+
 
       public function about_us(){
       $data['page_name'] = 'information/aboutus';
@@ -438,8 +460,8 @@ exit;
     public function vice_chancellors_office(){
     $data['page_name'] = 'information/vc_office';
     $data['page_title'] = 'VC Office';
-
-
+   
+   
     $this->load->view('front/layout',$data); 
     }
 
@@ -498,6 +520,35 @@ public function security_department(){
 
   $this->load->view('front/layout',$data); 
 }
+
+
+public function admission_policy(){
+  $data['page_name'] = 'information/admission_policy';
+  $data['page_title'] = 'Admission policy';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+public function FAQs(){
+  $data['page_name'] = 'information/faqs';
+  $data['page_title'] = 'Frequently Asked Questions';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+public function admission_office(){
+  $data['page_name'] = 'information/admission_office';
+  $data['page_title'] = 'Admission Office';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
 
 
 
