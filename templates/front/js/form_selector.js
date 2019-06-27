@@ -306,7 +306,9 @@ function initCountryState(){
    
     //Create and append select list for country and state
     var countrySelect = document.createElement("select");
-    countrySelect.id = "country_select";
+	countrySelect.id = "country_select";
+	countrySelect.classList.add("form-control");
+	countrySelect.setAttribute("name", "country");
     countrySelect.addEventListener(
         'change',
         function() { countryEle.value = this.value; },
@@ -315,7 +317,9 @@ function initCountryState(){
     countryEle.parentElement.insertBefore(countrySelect, countryEle);
     
     var stateSelect = document.createElement("select");
-    stateSelect.id = "state_select";
+	stateSelect.id = "state_select";
+	stateSelect.classList.add("form-control");
+	stateSelect.setAttribute("name", "state");
     stateSelect.addEventListener(
         'change',
         function() { stateEle.value = this.value; },

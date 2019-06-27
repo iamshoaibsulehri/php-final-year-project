@@ -368,21 +368,22 @@ exit;
         $config['max_size']             = 10000000;
         $this->load->library('upload', $config);
         $this->upload->initialize($config);
+        $photoc = NULL;
         if ( ! $this->upload->do_upload('proof'))
         {
             $error = array('error' => $this->upload->display_errors());
-               print_r($error );
-               die();
+            
                }
         else
         {
            $file = array('upload_data' => $this->upload->data());
        
            $datap['s_doc_proof']=   $file['upload_data']['file_name'];
-           
+           $photoc=  $file['upload_data']['file_name'];
                }
       
       }
+
 
 
 $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
@@ -391,14 +392,31 @@ $datap['student_id']= $student_id;
 
 // sending in where ID = Session Id
 $row_id  = $this->input->post('st_id');
-echo $row_id;
 if($row_id != ""){
+  if($photoc == NULL){
+    $this->db->where('acad_id',$row_id);
+    $get_file =  $this->db->get('academics')->result_array();
+    $datap['s_doc_proof'] = $get_file[0]['s_doc_proof'];
+    $photoc = $get_file[0]['s_doc_proof'];
+  }
   $this->db->where('acad_id',$row_id);
   $this->db->update('academics',$datap);
+
+  $datacc = array(
+    'id' => $row_id,
+    'photo'=> $photoc
+   );
+  echo   json_encode($datacc);
+    
 }else{
 $this->db->insert('academics', $datap);
 $id = $this->db->insert_id(); 
-echo $id;
+ $datacc = array(
+   'id' => $id,
+   'photo'=> $photoc
+  );
+ echo   json_encode($datacc);
+   
 }  
 exit;
   }
@@ -445,7 +463,26 @@ exit;
       echo '<div class="alert alert-success">Record Saved.</div>';
    exit;
 }
+if($para1 == "fc_to_dep"){
+      $fc_id = $_GET['fc_id'];
+   $departments =   $this->db->get_where('department',array('f_id'=>$fc_id))->result_array(); 
+   echo '<option value="0">-- Select Option --</option>';
+   foreach($departments as $dap){
+     echo '<option value="'. $dap['d_id'] .'">'. $dap['d_name'] .'</option>';
+   }
+   exit;
+}
+if($para1 == "dep_to_sp"){
+  $fc_id = $_GET['fc_id'];
+$departments =   $this->db->get_where('program',array('p_department'=>$fc_id))->result_array(); 
+echo '<option value="0">-- Select Option --</option>';
+foreach($departments as $dap){
+ echo '<option value="'. $dap['p_id'] .'">'. $dap['p_name'] .'</option>';
+}
+exit;
+}
  
+
   $this->load->view('front/layoutu', $data);
 }
 
@@ -569,6 +606,10 @@ public function admission_office(){
     $this->load->library('pagination');
     if(isset( $_GET['q'])){
       $this->db->like('t_name',$_GET['q']);
+      if(isset($_GET['d'])){
+      $dep = $_GET['d'];
+      $this->db->where('t_department', $dep);
+      }
       $teacher = $this->db->get('teacher');
       $count  = $teacher->num_rows();
     }else{

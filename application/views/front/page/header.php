@@ -273,120 +273,90 @@ h1 {
             </div>
           </div>
           </li>
-          <li><a href="#">USKT OFFICES <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
-            <div class="megamenu megamenu-bg-img" style="background:#f5f5f5;">
-            <div class="megamenu-row">
-            <div class="col3">
-              <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
-                <div class="box" style="height:240px;margin-top: 24px;">
-                  <h4 style="text-align:center; color:white;">USKT OFFICES</h4>
-                  <p  style="text-align:center; color:white;">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col3">
-            <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Statutory Offices</h4>
-          
-            <article class="post clearfix">
-           
-            <div class="entry-header">
-          <li><a href="<?php echo base_url()?>home/vice_chancellors_office">Vice Chancellor Office</a></li>
-          </div>
-          <div class="entry-content">  
-            </article>
-            <article class="post clearfix">
-           
-           <div class="entry-header">
-         <li><a href="<?php echo base_url()?>home/chairman_office">Chairman Office</a></li>
-         </div>
-         <div class="entry-content">  
-           </article>
-           <article class="post clearfix">
-           
-           <div class="entry-header">
-         <li><a href="<?php echo base_url()?>home/registrar_office">Registrar Office</a></li>
-         </div>
-         <div class="entry-content">  
-           </article>
-           <article class="post clearfix">
-           
-           <div class="entry-header">
-         <li><a href="<?php echo base_url()?>home/controller_examination">Controller Examination</a></li>
-         </div>
-         <div class="entry-content">  
-           </article>
-           <article class="post clearfix">
-           
-           <div class="entry-header">
-         <li><a href="<?php echo base_url()?>home/treasures">Treasures</a></li>
-         </div>
-         <div class="entry-content">  
-           </article>
-           
-           
-          </div>
-          <div class="col3">
-
-            <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Management Offices</h4>
-           
-            <article class="post clearfix">
-           
-            <div class="entry-header">
-              <li> <a href="<?php echo base_url()?>home/human_resources">Human Resources</a></li>
-            </div>
-            <div class="entry-content">
-              </article>
-              
-              <article class="post clearfix">
-           
-           <div class="entry-header">
-             <li> <a href="<?php echo base_url()?>home/IT_center">Information Technology Center</a></li>
-           </div>
-           <div class="entry-content">
-             </article>
-
-             <article class="post clearfix">
-           
-           <div class="entry-header">
-             <li> <a href="<?php echo base_url()?>home/security_department">Security Department</a></li>
-           </div>
-           <div class="entry-content">
-             </article>
-
-             <article class="post clearfix">
-           
-           <div class="entry-header">
-             <li> <a href="<?php echo base_url()?>home/admission_office">Admission Office</a></li>
-           </div>
-           <div class="entry-content">
-             </article>
-              
-            </div>
-
-
-
-            <div class="col3">
-           
-              <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
-              <article class="post clearfix">
-              <?php 
-            
-            $office = $this->db->get_where('pages', array('parent_id'=>3))->result_array();
-            foreach($office as $offi)
-            {
-              ?>
-              <div class="entry-header">
-                <li><a href="#"><?php echo $offi['page_title']?></a></li>
-              </div>
-              <div class="entry-content">
-              <?php
-            }
-            ?>
-                </article>
-              </div>
-            </div>
-          </div>
-          </li>
+    
+<li><a href="#">USKT OFFICES <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
+  <div class="megamenu megamenu-bg-img" style="background:#f5f5f5;">
+  <div class="megamenu-row">
+  <div class="col3">
+    <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
+      <div class="box" style="height:240px;margin-top: 24px;">
+        <h4 style="text-align:center; color:white;">USKT OFFICES</h4>
+        <p  style="text-align:center; color:white;">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col3">
+  <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Statutory Offices</h4>
+  <article class="post clearfix">
+  <div class="entry-header">
+<li><a href="<?php echo base_url()?>home/vice_chancellors_office">Vice Chancellor Office</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li><a href="<?php echo base_url()?>home/chairman_office">Chairman Office</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li><a href="<?php echo base_url()?>home/registrar_office">Registrar Office</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li><a href="<?php echo base_url()?>home/controller_examination">Controller Examination</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li><a href="<?php echo base_url()?>home/treasures">Treasures</a></li>
+</div>
+<div class="entry-content">
+  </article>
+</div>
+<div class="col3">
+<h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Management Offices</h4>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/human_resources">Human Resources</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/IT_center">Information Technology Center</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/security_department">Security Department</a></li>
+</div>
+<div class="entry-content">
+  </article>
+  <article class="post clearfix">
+  <div class="entry-header">
+    <li> <a href="<?php echo base_url()?>home/admission_office">Admission Office</a></li>
+  </div>
+  <div class="entry-content">
+    </article>
+  </div>
+  <div class="col3">
+    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
+    <article class="post clearfix">
+    <div class="entry-header">
+      <li><a href="#"><?php echo $offi['page_title']?></a></li>
+    </div>
+    <div class="entry-content">
+      </article>
+    </div>
+  </div>
+</div>
+</li>
           <li><a href="<?php echo base_url()?>home/contact_us">CONTACT US</a></li>
           <li><a href="<?php echo base_url()?>home/event">EVENTS</a></li>
         </ul>

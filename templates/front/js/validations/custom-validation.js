@@ -32,15 +32,18 @@ $(function() {
     });
     
     $('body').on('click','#button-update',function() {
-                $form_data = $("#form2").serialize();
+       
                 $st_id = $('input[name="st_id"]').val();
+                var  $form_data = new FormData( $("#form2")[0] );
                 $url = $("#form2").attr('action');
 
                 $.ajax({
                     url: $url,
                     type: "POST",
                     data: $form_data,
+                    async : false,
                     cache: false,
+                    contentType : false,
                     processData: false,
                     beforeSend: function() {
                         $result = $('select[name="result"]').val();
@@ -50,10 +53,7 @@ $(function() {
                         $totalmarks = $('input[name="totalmarks"]').val();
                         $obtainedmarks = $('input[name="obtainedmarks"]').val();
                         $percentage = $('input[name="percentage"]').val();
-                        $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
-                            "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td></td>" +
-                            '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="http://localhost/uskt/home/registration_form/acc_delete/'+ $st_id +'" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
-                        $('.acca-table tbody tr[row-id="' + $st_id + '"]').replaceWith($html);
+                        $('input[type="file"]').val(null); 
                         $('#button2').css('display', 'block');
                         $('input[name="st_id"]').val('');
                         $('#button-update').css('display', 'none');
@@ -62,6 +62,13 @@ $(function() {
                     },
                     success: function(data) {
                    
+                        $st_tt = jQuery.parseJSON(data);
+                        $st_id = $st_tt.id;
+                        $photo = $st_tt.photo;
+                        $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
+                        "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td><a href='http://localhost/uskt/uploads/certificates/"+  $photo +"' target='_blank'> "+  $photo +" </a></td>" +
+                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
+                           $('.acca-table tbody tr[row-id="' + $st_id + '"]').replaceWith($html);
                     }
                 });
                 return false;
@@ -97,15 +104,18 @@ $(function() {
                         $totalmarks = $('input[name="totalmarks"]').val();
                         $obtainedmarks = $('input[name="obtainedmarks"]').val();
                         $percentage = $('input[name="percentage"]').val();
+                        $('input[type="file"]').val(null); 
                         $('#form2 input[type="text"], #form2 input[type="number"]').val("");
                         $('#form2 select option[value="0"]').attr("selected", 'selected');
                     },
                     success: function(data) {
-                        $st_id = data;
-                        console.log(data);
+                        $st_tt = jQuery.parseJSON(data);
+                        $st_id = $st_tt.id;
+                        $photo = $st_tt.photo;
                         $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
-                        "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td></td>" +
-                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';  $(".acca-table tbody").append($html);
+                        "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td><a href='http://localhost/uskt/uploads/certificates/"+  $photo +"' target='_blank'> "+  $photo +" </a></td>" +
+                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
+                          $(".acca-table tbody").append($html);
                      
                     }
                 });
@@ -224,5 +234,30 @@ $(function() {
         });
 
     });
-    
+    $("#Faculty").on('change',function(){
+    $f_id =  $(this).val();
+    $url = "http://localhost/uskt/home/registration_form/fc_to_dep?fc_id="+ $f_id;
+    $.ajax({
+        url: $url,
+        success: function(data) {
+        $("#Department").html(data);
+        }
+    });
+    });
+    $("body").on('change',"#Department",function(){
+        $f_id =  $(this).val();
+        $url = "http://localhost/uskt/home/registration_form/dep_to_sp?fc_id="+ $f_id;
+        $.ajax({
+            url: $url,
+            success: function(data) {
+            $("#Program").html(data);
+            }
+        });
+        });
+        $(".nav-tabs a[data-toggle=tab]").on("click", function(e) {
+            if ($(this).hasClass("disabled")) {
+              e.preventDefault();
+              return false;
+            }
+          });
 });
