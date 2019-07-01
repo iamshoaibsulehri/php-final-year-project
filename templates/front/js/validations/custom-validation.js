@@ -67,7 +67,7 @@ $(function() {
                         $photo = $st_tt.photo;
                         $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
                         "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td><a href='http://localhost/uskt/uploads/certificates/"+  $photo +"' target='_blank'> "+  $photo +" </a></td>" +
-                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
+                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="http://localhost/uskt/home/registration_form/acc_delete/' + $st_id + '" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
                            $('.acca-table tbody tr[row-id="' + $st_id + '"]').replaceWith($html);
                     }
                 });
@@ -114,7 +114,7 @@ $(function() {
                         $photo = $st_tt.photo;
                         $html = "<tr row-id='"+ $st_id +"'><td>" + $result + "</td><td>" + $qaulification + "</td><td>" + $institute + "</td><td>" + $passingyear + "</td>" +
                         "<td>" + $totalmarks + "</td><td>" + $obtainedmarks + "</td><td>" + $percentage + "</td><td><a href='http://localhost/uskt/uploads/certificates/"+  $photo +"' target='_blank'> "+  $photo +" </a></td>" +
-                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="#" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
+                        '<td><a href="http://localhost/uskt/home/registration_form/acc_edit/' + $st_id + '" class="ac_edit" data-id="' + $st_id + '"><i class="fa fa-edit"></i></a> <a href="http://localhost/uskt/home/registration_form/acc_delete/' + $st_id + '" class="ac_delete" data-id="' + $st_id + '"><i class="fa fa-trash"></i></a></td></tr>';
                           $(".acca-table tbody").append($html);
                      
                     }

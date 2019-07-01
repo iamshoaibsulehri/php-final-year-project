@@ -347,12 +347,36 @@ h1 {
   </div>
   <div class="col3">
     <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
+
     <article class="post clearfix">
     <div class="entry-header">
-      <li><a href="#"><?php echo $offi['page_title']?></a></li>
+      <li><a href="<?php echo base_url()?>home/oric_office">Office of Research, Innovation, and Commercialization (ORIC)</a></li>
     </div>
     <div class="entry-content">
       </article>
+   
+      <article class="post clearfix">
+    <div class="entry-header">
+      <li><a href="<?php echo base_url()?>home/student_services_office">Student Service Centre</a></li>
+    </div>
+    <div class="entry-content">
+      </article>
+
+      <article class="post clearfix">
+    <div class="entry-header">
+      <li><a href="<?php echo base_url()?>home/qec_office">Quality Enhancement Cell</a></li>
+    </div>
+    <div class="entry-content">
+      </article>
+
+      <article class="post clearfix">
+    <div class="entry-header">
+      <li><a href="<?php echo base_url()?>home/center_of_media_Publication">Center for Media and Publication</a></li>
+    </div>
+    <div class="entry-content">
+      </article>
+
+
     </div>
   </div>
 </div>

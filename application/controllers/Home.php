@@ -190,9 +190,9 @@ if($_POST){
 }
 
 
+
 $this->load->view('front/layout', $data);
 }
-
 
   public function user_registration()
   {
@@ -265,6 +265,8 @@ $this->load->view('front/layout', $data);
             $data['detail'] = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
             $this->load->view('front/layout', $data);
           }
+
+
 
 public function user_logout(){
    unset($_SESSION);
@@ -586,9 +588,43 @@ public function admission_office(){
 
 }
 
+public function qec_office(){
+  $data['page_name'] = 'information/qec_office';
+  $data['page_title'] = 'QEC Office';
+  
 
+  $this->load->view('front/layout',$data); 
 
+}
 
+public function oric_office(){
+  $data['page_name'] = 'information/oric';
+  $data['page_title'] = 'Oric Office';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+public function student_services_office(){
+  $data['page_name'] = 'information/student_services';
+  $data['page_title'] = 'Student Services Office';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+public function center_of_media_Publication(){
+  $data['page_name'] = 'information/medical_publication';
+  $data['page_title'] = 'Center Of Media Publication';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+// Offices of USKT
 
      public function program_detail(){
       $data['page_name'] = 'programs/program_detail';
@@ -774,5 +810,15 @@ if($_POST){
    $this->load->view('front/layout',$data); 
   } 
 
-
+function test_email(){
+  $this->load->library('email');
+  $this->email->from('smartprix36@gmail.com', 'Muhammad Salman');
+$this->email->to('m.salman@thetasolutions.co.uk');
+ 
+$this->email->subject('Email Test');
+$this->email->message('Testing the email class.');
+$this->email->send();
+echo '<br />';
+echo $this->email->print_debugger();
+}
 }

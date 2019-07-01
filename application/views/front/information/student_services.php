@@ -21,29 +21,19 @@
     <div class="row">
         <div class="col-md-12">
             <div class="Heading_all">
-                <h3 class="office">Student Services Center</h3>
+                <h3 class="office" style="text-align:center;">Student Services Center</h3>
            </div>
            <div class="padding">
            <div class="row">
                <div class= "col-md-3">
                    <img src="<?php echo base_url()?>templates/front/images/bg/event.jpg" alt="">
-                  <span class="center" style="text-align:center;"><p> IT Center</p><span>
+                  <span class="center" style="text-align:center;"><p>Student Services Center</p><span>
                 </div>
                 <div class= "col-md-9">
-                Effective evaluation and assessment of student’s performance is a key component of
-                 University education. The office of Controller of Examinations is offering 
-                  and reliable examination system for the students of University.Our aim is to provide best 
-                  possible services to the students without compromising the standard and sanctity of examinations.
-                  Controller of Examinations Office is established for the conduct of examinations,
-                   result notifications and award of degrees. 
-                This office plays a key role to hold the examinations as per following laid down tasks.
-                To prepare and announce in advance the calendar of examinations.
-Management of examinations as per requirements.
-Making arrangements of marking / evaluations of answerscripts from examiners.
-Implementation of decisions of hardship case committees, unfair means committee, or discipline committee.
-Making notifications for the results of students.
-Maintaining strict security level of the official work.
-Preparation of results, notifications, transcripts and degrees.
+                <h2 style="text-align: ">We are here to help you.</h2>
+                "Student Services Center (SSC) is committed to providing quality academic and not academic
+                 services to the students under one roof through specially trained staff using modern IT 
+                 tools. The the aim is to serve students without moving them from one surface to the other for resolution of their problems or for seeking guidance. Student Services Center work closely with other departments/sections across the campus and provide specialist and general advice, information and services in various areas."
                 </div>
             </div>
 </div>
@@ -59,7 +49,46 @@ Preparation of results, notifications, transcripts and degrees.
            </div>
            <div class="row">
                <div class= "col-md-12">
-               Vision to be the leading department at University of Sialkot that sets the standards of quality, credibility and reliability in all of its functions.
+               <div class="col-sm-6  container-fluid text-center para" style="text-align: justify; background-color: #f0f5f5">
+                    <br>
+                    <br>
+                    <h4><b>One Window Operation (OWO):</b></h4>
+
+                    <p class="para">
+                        Under the one window operation, we resolve/sort problems of students relating to
+examination, academics, courses registration, scholarships and fee discounts, internships
+opportunities, permanent placement after course completion etc.
+                    </p>
+
+                    <h4><b>Admissions:</b></h4>
+
+                    <p class="para">
+                        General information about admissions is available at SSC throughout the
+year. During the regular admission process, other services about admissions include
+prospectus sale, online admission form submission, display of merit list etc. are provided to
+prospective students.
+                    </p>
+                    <br>
+
+
+                </div>
+                <div class="col-sm-6 para" style="text-align: justify;background-color: #f0f5f5">
+                    <br>
+                    <br>
+
+                    <h4><b>Career Counseling &amp; Job Placement:</b></h4>
+
+                    <p class="para">
+                        Employability of pass-outs is a major concern of
+USKT.Students are provided specialist advice and guidance on
+career choice/mentoring, various job vacancies available, CV making tips etc.
+Societies and Clubs: SSC is also supervising different societies and clubs for various
+academic, nonacademic and cultural happenings in and outside of the campus.<br><br><br><br>
+                    </p>
+                    <br>
+                    <br>
+
+                </div>
 
 
                 </div>
@@ -71,40 +100,145 @@ Preparation of results, notifications, transcripts and degrees.
 <div class="row">
         <div class="col-md-12">
             <div class="Heading_all">
-                <h3 class="office">Mission </h3>
+                <h3 class="office">GENERAL ADMISSION POLICY FOR ALL DEGREE PROGRAMS </h3>
            </div>
            <div class="row">
                <div class= "col-md-12">
-               In University of Sialkot, Office of Controller Examination will create a 
-               technologically efficient, student-oriented, flexible and transparent system 
-               that caters to the needs of its student body effectively, ensuring reliable testing 
-               and evaluation procedures with zero tolerance towards unfair and inefficient practices. 
-               The office of the Controller of Examinations guards the standards of quality in the conduct of Examination at Under Graduate, Graducate and Postgraduate levels, while enforcing rules and regulations of Semester and Annual Examination. This office deals with the matters of students of Univeristry, Notification of Results, Issuance of
-                Detailed Marks Sheets, Provisional Certificates and Verification of Transcripts and Degrees.
+               <div class="para">
+
+<ol type="1">
+    <li>Admission shall be made as per USKT Admission Policy and shall be open for all candidates from Pakistan and abroad</li> 
+    
+    <li>All applications must be submitted through USKT Online Admission Application system on or before the stipulated deadline.</li>
+    <li>All information submitted through online application should be supported by the provision of copies of relevant transcripts and certificates. Information will not be considered valid if an official proof/document is missing. </li>
+    <li>It is the sole responsibility of the applicant to provide complete, correct and timely information to the Admissions Office. Applications without complete and correct information or documents will not be considered for admission.</li>
+    <li>In addition to the condition(s) stipulated by the USKT through admission offer letter, all admitted students MUST meet the prescribed conditions stipulated by the Higher Education Commission (HEC), Pakistan.</li>
+    <li>Admissions shall be strictly on open merit.</li>
+    <li>At least 45% marks in terminal degree are required to apply for admission.</li>
+    <li>Departmental Entry / Aptitude Test (where required) shall be conducted by the concerned department, as per given schedule.</li>
+    <li>List of the selected candidates shall be displayed as per schedule. The list shall also be available on USKT website.</li>
+    <li>The selected candidates shall be required to pay admission dues within the notified dates; otherwise the admission shall be considered cancelled.</li>
+    <li>Deposited Fee shall not be refunded except security dues or as per the Fee Refund Policy of HEC.</li>
+    <li>Subject to the merit and availability of seat, a candidate shall be allowed to change major discipline within 14 days of commencment of class.</li>                        
+    <li>Two seats in each program shall be reserved for the disable candidates as per criteria of HEC policy. </li>
+</ol>
+</div>
                 </div>
         	</div>
        </div>
     </div>
   
     <!-- Contact -->
-    <div class="row">
-        <div class="col-md-12">
-            <div class="Heading_all">
-                <h3 class="office"> Objectives</h3>
-           </div>
+    
+            
            <div class="row">
                <div class= "col-md-12">
-               To establish a strong, reliable and credible examination/evaluation system in the institute
-To improve the quality of examination and evaluation, and ensuring credibility of the processes throughout the system
-To ensure that all components of the examinations system in the institute follow the rules and policies of the institute in true letter and spirit to ensure the same quality standards across the board
-To improve the examinations and evaluation policies of the institute to make them flexible enough to adopt the changing environment on continuous basis
-To boost the examination system to the optimum level to get better, speedy and reliable results
-To establish a network that could guarantee constant information sharing between all the components
-Ext: 116
+              
+               <div class="Heading_all">
+                <h3 class="office" style="text-align:center"> Placement Cell</h3>
+           </div>
+                    <br>
+                   
+                    <div class="col-sm-6  container-fluid text-center para" style="text-align: justify;">
+                       
+                        <h4><b>INTRODUCTION:</b></h4>
+
+                        <p class="para">
+                            The Placement Cell plays a crucial role in locating job opportunity of Sialkot we are providing educational opportunities to the potential students regardless of their financial circumstances, religion, caste etc. We are committed to the creation of knowledge in the broad range of fields.  Our Placement Cell organizes career guidance programmes for all the students starting from first year. 
+                        </p>
+                        <br>
+
+                        <h4><b>PLACEMENT CELL:</b></h4>
+
+                        <p class="para">
+                            The goal of our placement cell is to provide employment opportunities to the students. The Training &amp; Placement Cell is entirely working under the overall supervision of Director Student Service Center. The Cell is well equipped with ample infrastructure in terms of Seminar Halls, Meeting/Consultancy Hall for Pre Placement Talk, Presentations, etc.<br>
+                            Our dedicated team aims to:
+                        </p>
+                        <ol class="para">
+                            
+                            <li>Look after the training and placement activities of students</li>
+                            <li>Have close liaison with industry for placement of students</li>
+                            <li>Prepare students for corporate and collect feedback from the companies coming for placement</li>
+                            <li>Arrange Industry Expert Workshops, guest lectures and Industrial Visits</li>
+                            <li>Conduct various Training programs for technical skills as well as soft skills</li>
+                            <li>Identify relevant placement firms for the Student’s final placements, internship program and live projects</li>
+                            <li>Administer the placement of Students with firms, including the location of placement firms, agreement of job specifications, and liaison with employers.</li>
+                            <li>Provide Career guidance and support to the students</li>
+                            <li>Act as the primary contact between the employer and the Institution</li>
+
+                        </ol>
+                    </div>
+                  
+                    <div class="col-sm-6">
+                        <br>
+                        <br>
+                        <img src="<?php echo base_url()?>templates/front/images/about/bank.jpg" class="img-responsive">
+
+
+                    </div>
+              
+                
                 </div>
         	</div>
-       </div>
-    </div>
+      
+
+        
+            <div class="Heading_all">
+                <h3 class="office">PLACEMENT PROCESS </h3>
+           </div>
+           <div class="row">
+             
+               <div class="col-md-12 para">
+                           
+
+                            <p class="para">
+                                The Institute helps each student in exploring placement opportunities by inviting various companies for campus recruitment of students who are in the final year of the programme and are likely to graduate at the end of the academic year.<br>
+
+                               The final placements, at the Institute, are a result of very systematic interaction with the industry and continuous career counseling of the students. Right from the beginning of the programme, students are continuously counseled with regard to his/her career aspirations and options, which in turn is vigorously followed up with the potential companies for participating in the placement programme of the Institute. This not only helps the students in getting their ‘dream’ jobs but also assists the visiting placement companies in identifying the ‘right’ candidate for their organization. However, the placement activity is primarily managed by the Placement Committee<br>
+
+                            </p>
+                        <br>
+                        </div>
+
+
+        	</div>
+      
+
+
+            <div class="Heading_all">
+                <h3 class="office">The Broad Activities Undertaken by the Placement Cell are </h3>
+           </div>
+           <div class="row">
+               
+               <div class="col-md-12 para">
+                             
+                            <p class="para">
+                                Formation of Students’ Placement Committees for final placement and also for getting industrial training and industry linked project work for students.<br></p>
+                                <ol class="para">
+                                    
+                                    <li>  Preparation of Placement Brochure for final placement.</li>
+                                    <li>  Pre-placement visits (PPV) to the companies.</li>
+                                    <li>  Communication, networking and relationship building with the potential recruiters</li>
+                                    <li>  Invitation to potential recruiters to visit the Institute.</li>
+                                    <li>  Continuation of placement activities after the stipulated period, till all the students are placed.</li>
+                                    <li>  Grooming and training of the candidates for the placements so that their chances of selection increase.</li>
+                                    <li>  General follow-up, joining formalities and other administrative activities.</li>
+
+                                </ol>
+                                <br>
+                            <p class="para">
+                               University of Sialkot is looking forward to work with the local industry and esteemed organizations in a closer contact regarding the placement of our pass-outs of various departments. Our placement office is actively in contact with the concerned organizations like SCCI, different trade bodies and agencies, government and private sectors, banking sector, telecom sector and others.<br>
+
+                            </p>
+                        <br>
+                      
+
+
+                </div>
+        	</div>
+   
+
+
 
       <!-- Contact -->
       <div class="row">
@@ -115,8 +249,8 @@ Ext: 116
            <div class="row">
                <div class= "col-md-12">
                Office of Controller Examination
-University of Sialkot
-controllerexamination@uskt.edu.pk
+University of Sialkot:<br>
+Email: controllerexamination@uskt.edu.pk<br>
 Phone: +92-523575518-20    -Ext.: 109
                 </div>
         	</div>
