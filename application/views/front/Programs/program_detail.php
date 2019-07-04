@@ -62,7 +62,7 @@
                   <?php echo $data['p_criteria']?>
                 </div>
                 <div class="tab-pane fade" id="tab3">
-                <div><a class="btn btn-xl btn-theme-colored2 mt-30 pr-40 pl-40" href="shop-product-details.html">Apply Now</a></div>
+                <div><a class="btn btn-xl btn-theme-colored2 mt-30 pr-40 pl-40" href="<?php echo base_url()?>home/registration_form">Apply Now</a></div>
                 </div>
                 <div class="tab-pane fade" id="tab4">
                   <h4 class="line-bottom-theme-colored-2 mb-20">Fees Structure</h4>

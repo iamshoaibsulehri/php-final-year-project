@@ -106,7 +106,7 @@ academic, nonacademic and cultural happenings in and outside of the campus.<br><
                <div class= "col-md-12">
                <div class="para">
 
-<ol type="1">
+<ol type="1" style="list-style-type: circle;">
     <li>Admission shall be made as per USKT Admission Policy and shall be open for all candidates from Pakistan and abroad</li> 
     
     <li>All applications must be submitted through USKT Online Admission Application system on or before the stipulated deadline.</li>

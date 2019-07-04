@@ -254,6 +254,7 @@ $this->load->view('front/layout', $data);
     }
       $this->load->view('front/layout', $data);
   }
+
         public function user_profile()
         {
           $login = $this->session->userdata('loggin');
@@ -262,10 +263,61 @@ $this->load->view('front/layout', $data);
           }
             $data['page_name'] = 'user_registration_form/profile';
             $data['page_title'] = 'Profile';
+            
+            if(isset( $_POST['pass']))
+            {
+              $password = $this->input->post('password');
+              
+              if($password  != ""){
+               
+                $ndata['password'] = md5($this->input->post('password'));
+               
+            }
+            
+            $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+            $id=$detail[0]['student_id'];
+           $this->db->where('student_id',$id);
+            $this->db->update('students',$ndata);
+            redirect(base_url().'home/user_profile');
+            }
+            
+         if(isset( $_POST['file'])){
+           if($_FILES){
+            $config['upload_path']          = './uploads/student_profile/';
+            $config['allowed_types']        = 'gif|jpg|png';
+            $config['max_size']             = 10000000;
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            if ( ! $this->upload->do_upload('image'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+                   print_r($error);
+                   }
+            else
+            {
+               $photo = array('upload_data' => $this->upload->data());
+           
+               $pdata['photo']= $photo['upload_data']['file_name'];
+                   }
+                   print_r($pdata);
+            $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+            $id=$detail[0]['student_id'];
+           $this->db->where('student_id',$id);
+           
+            $this->db->update('students', $pdata);
+            redirect(base_url().'home/user_profile');
+          }
+         }
+            
+
+      
+        
             $data['detail'] = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
             $this->load->view('front/layout', $data);
+             
+             
           }
-
+        
 
 
 public function user_logout(){
@@ -339,8 +391,7 @@ public function registration_form($para1 = NULL,$para2 =NULL,$para3 = NULL){
       $datap['e_relation']= $this->input->post('e_relation');
       $datap['e_mail']= $this->input->post('e_email');
 
-    // status
-      $datap['status']= 'submitted';
+    
 
          
  $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
@@ -455,12 +506,30 @@ exit;
     $datap['faculty']= $this->input->post('faculty');
       $datap['department']= $this->input->post('department');
       $datap['program']= $this->input->post('program');
-   
-
+    // status
+  
+  
+    
     $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
     $id=$detail[0]['student_id'];
-   $this->db->where('student_id',$id);
    
+
+   $columns= $this->db->get_where('registration_form', array('student_id'=>$id))->result_array();
+
+  if($columns[0]['status']==""){
+   $this->load->library('email');
+   $this->email->from('smartprix36@gmail.com', 'Muhammad Salman');
+ $this->email->to('shoaibrajput294@gmail.com');
+  
+ $this->email->subject('USKT Admission Application');
+ $this->email->message('Thanks For Applying
+ Your Application is under Review We will notify you soon as it will be procceeded');
+ $this->email->send();
+ $datap['status']= 'submitted';
+
+
+}
+ $this->db->where('student_id',$id);
    $this->db->update('registration_form' , $datap);
       echo '<div class="alert alert-success">Record Saved.</div>';
    exit;
@@ -606,6 +675,7 @@ public function oric_office(){
 
 }
 
+
 public function student_services_office(){
   $data['page_name'] = 'information/student_services';
   $data['page_title'] = 'Student Services Office';
@@ -618,6 +688,31 @@ public function student_services_office(){
 public function center_of_media_Publication(){
   $data['page_name'] = 'information/medical_publication';
   $data['page_title'] = 'Center Of Media Publication';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+public function library(){
+  $data['page_name'] = 'information/library';
+  $data['page_title'] = 'Library';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+public function labs(){
+  $data['page_name'] = 'information/labs';
+  $data['page_title'] = 'labs';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
+
+public function transport(){
+  $data['page_name'] = 'information/transport';
+  $data['page_title'] = 'Transport';
   
 
   $this->load->view('front/layout',$data); 

@@ -43,8 +43,8 @@ color: red;
                                         <p>We only accept applications submitted electronically. This allows us to process your application more quickly. It also keeps you informed of the status of your application throughout the process by checking it online.</p>
                                         <h4 class="heading">How do I create an account?</h4>
                                         <p>
-                                            An online application account can be created through the USKT website i.e. <a href="http://www.uskt.edu.pk/Admissionslogin.aspx">http://www.uskt.edu.pk/Admissionslogin.aspx</a>.<br>
-                                            To create an online application account with the <a href="http://www.uskt.edu.pk/Admissionslogin.aspx"><em>USKT Online Application System</em>,</a> you are required to have a valid email address. Please use your Yahoo or Gmail account to create your online application account. Applicants are advised to have at least two active email addresses so that in case of any problem with their email account they can still correspond with the USKT Office of Admissions through their second address. It is advised to create only <em>One Account</em> for the online application submission.
+                                            An online application account can be created through the USKT website i.e. <a href="<?php echo base_url()?>home/admission">Admission </a>.<br>
+                                            To create an online application account with the <a href="<?php echo base_url()?>home/admission"><em>USKT Online Application System</em>,</a> you are required to have a valid email address. Please use your Yahoo or Gmail account to create your online application account. Applicants are advised to have at least two active email addresses so that in case of any problem with their email account they can still correspond with the USKT Office of Admissions through their second address. It is advised to create only <em>One Account</em> for the online application submission.
                                         </p>
                                         <h4 class="heading">Why do I need to list <em>All</em> schools I have attended?</h4>
                                         <p>It's important for us to get a complete and accurate picture of your academic history. Failure to list and submit transcripts from all institutions previously attended is considered to be a violation of academic ethics and may result in the cancellation of your admission or dismissal from the university.</p>
@@ -63,7 +63,7 @@ color: red;
                                         <h4 class="heading">How do I know if my application was submitted?</h4>
                                         <p>When the application is submitted you will also receive an sms notifying you that your application has been submitted. </p>
                                         <h4 class="heading">Who do I contact if I have questions about the application process?</h4>
-                                        <p>If you have any question about the application process,&nbsp;please contact USKT Admissions Office at the following link:&nbsp;<a href="http://www.uskt.edu.pk/Contactus.aspx">http://www.uskt.edu.pk/Contactus.aspx</a></p>
+                                        <p>If you have any question about the application process,&nbsp;please contact USKT Admissions Office at the following link:&nbsp;<a href="<?php echo base_url()?>home/contact_us">Contact Uss</a></p>
                                         <h4 class="heading">Who do I contact if I have questions about a particular programme?</h4>
                                         If you have any question regarding a programme, please visit the relevant link on the USKT website: <a class="faq_link" href="<?php echo base_url()?>uskt">USKT.edu.pk</a>
              </div>
