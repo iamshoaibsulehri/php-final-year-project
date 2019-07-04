@@ -182,15 +182,15 @@ h1 {
         </div>
         <div class="collapse navbar-collapse " id="myNavbar">
         <ul class=" menuzord-menu menuzord-indented " style="max-height: 400px;">
-          <li class="active"><a href="<?php echo base_url()?>home">HOME</a>
-          <li><a href="<?php echo base_url()?>home/about_us">ABOUT USKT</a></li>
-          <li><a href="#">ACADEMICS <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
-            <div class="megamenu megamenu-bg-img" style="background:#f5f5f5;">
+          <li class="active"><a href="<?php echo base_url()?>home">Home</a>
+          <li><a href="<?php echo base_url()?>home/about_us">About USKT</a></li>
+          <li><a href="#">Acedemics <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
+            <div class="megamenu megamenu-bg-img" style="background:#ffff;">
             <div class="megamenu-row">
             <div class="col3">
               <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
                 <div class="box" style="height:240px;margin-top: 24px;">
-                  <h4 style="text-align:center; color:white;">ACADEMICS</h4>
+                  <h4 style="text-align:center; color:white;">Acedemics</h4>
                   <p  style="text-align:center; color:white;">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
                 </div>
               </div>
@@ -274,8 +274,8 @@ h1 {
           </div>
           </li>
     
-<li><a href="#">USKT OFFICES <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
-  <div class="megamenu megamenu-bg-img" style="background:#f5f5f5;">
+<li><a href="#">USKT Offices <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
+  <div class="megamenu megamenu-bg-img" style="background:#ffff;">
   <div class="megamenu-row">
   <div class="col3">
     <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
@@ -381,8 +381,80 @@ h1 {
   </div>
 </div>
 </li>
-          <li><a href="<?php echo base_url()?>home/contact_us">CONTACT US</a></li>
-          <li><a href="<?php echo base_url()?>home/event">EVENTS</a></li>
+<li><a href="#">Life At USKT <span class="indicator"><i class="fa fa-angle-down"></i></span></a>
+  <div class="megamenu megamenu-bg-img" style="background:#ffff;">
+  <div class="megamenu-row">
+  <div class="col3">
+    <div class="widget fold" style="background-image:url(<?php echo base_url()?>templates/front/images/bg/acedemics.jpg);">
+      <div class="box" style="height:240px;margin-top: 24px;">
+        <h4 style="text-align:center; color:white;">USKT OFFICES</h4>
+        <p  style="text-align:center; color:white;">We are unlocking new horizons in pursuit of taking their abilities to new heights.</p>
+      </div>
+    </div>
+  </div>
+  <div class="col3">
+  <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">USKT Events</h4>
+  <article class="post clearfix">
+  <div class="entry-header">
+<li><a href="<?php echo base_url()?>home/event">Events</a></li>
+</div>
+<div class="entry-content">
+</article>
+</div>
+<div class="col3">
+<h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">USKT Facilities</h4>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/library">Library</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/labs">Labs</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+  <li> <a href="<?php echo base_url()?>home/transport">Transport</a></li>
+</div>
+<div class="entry-content">
+  </article>
+  <article class="post clearfix">
+  <div class="entry-header">
+    <li> <a href="<?php echo base_url()?>home/hostel">Hostel</a></li>
+  </div>
+  <div class="entry-content">
+    </article>
+  </div>
+  <div class="col3">
+    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
+<?php $detail = $this->db->get('faculty')->result_array();
+foreach($detail as $det)
+{
+?>
+    <article class="post clearfix">
+    <div class="entry-header">
+      <li><a href="<?php echo base_url()?>home/faculty_detail/<?php echo $det['f_id']?>"><?php echo $det['f_title']?></a></li>
+    </div>
+    <div class="entry-content">
+      </article>
+   
+     <?php
+}
+?>
+
+
+    </div>
+  </div>
+</div>
+</li>
+     
+     
+     
+          <li><a href="<?php echo base_url()?>home/contact_us">Contact Us</a></li>
+          
         </ul>
         <div class="pull-right sm-pull-none mb-sm-15" style="margin: 20px !important;">
           <div class="fb-like" data-href="https://www.facebook.com/uniofsialkot/" data-width="" data-share="false" data-layout="button_count" data-action="like" data-size="large" data-show-faces="false" data-share="true">

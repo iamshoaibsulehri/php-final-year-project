@@ -23,7 +23,7 @@
               </div>
               <div class="feature-title">
               	<h3>Modern Book Library</h3>
-              	<a href="<?php echo base_url()?>home/under_construction" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              	<a href="<?php echo base_url()?>home/library" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
               </div>
             </div>
           </div>

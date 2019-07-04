@@ -100,14 +100,14 @@
                 </div>
               </div>
               <div class="widget">
-                <h5 class="widget-title line-bottom">Categories</h5>
+                <h5 class="widget-title line-bottom">Usefull Links</h5>
                 <div class="categories">
                   <ul class="list list-border angle-double-right">
-                    <li><a href="#">Creative<span>(19)</span></a></li>
-                    <li><a href="#">Portfolio<span>(21)</span></a></li>
-                    <li><a href="#">Fitness<span>(15)</span></a></li>
-                    <li><a href="#">Gym<span>(35)</span></a></li>
-                    <li><a href="#">Personal<span>(16)</span></a></li>
+                    <li><a href="<?php echo base_url()?>home/library">Library</a></li>
+                    <li><a href="<?php echo base_url()?>home/faqs">Faqs</a></li>
+                    <li><a href="<?php echo base_url()?>home/admission">Admission</a></li>
+                    <li><a href="<?php echo base_url()?>home/admission_policy">Admission Policy</a></li>
+                   
                   </ul>
                 </div>
               </div>
@@ -137,8 +137,17 @@
                 <h5 class="widget-title line-bottom">Photos from Flickr</h5>
                 <div id="flickr-feed" class="clearfix">
                   <!-- Flickr Link gallery-->
-                 
-                 
+                  <?php 
+                $this->db->limit(6);
+                $gallery_items = $this->db->get('gallery')->result_array();
+               
+                foreach($gallery_items as $items)
+               {
+               ?>
+                  <div class="flickr_badge_image" id="flickr_badge_image1"><a href=""><img src="<?php echo base_url()?>uploads/gallery/<?php echo $items['photo']?>" alt="A photo of USKT" title="<?php echo $items['g_name']?>" height="75" width="75"></a></div>
+<?php
+               }
+               ?>
                 </div>
               </div>
             </div>
