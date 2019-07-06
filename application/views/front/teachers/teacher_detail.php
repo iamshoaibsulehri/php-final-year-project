@@ -80,7 +80,7 @@
 										<div class="media-body">
 											<h5 class="mt-0 mb-0">Contact:</h5>
 											<p><span>Phone:</span><?php echo $detail['t_contact'] ?><br><span>Mail:</span>
-                      <?php echo $detail['t_mail'] ?></p>
+                      <?php echo $detail['email'] ?></p>
 										</div>
 									</div>
 								</li>

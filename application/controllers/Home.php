@@ -91,6 +91,7 @@ public function event()
    
     $this->load->view('front/layout',$data);
  }
+ 
  public function event_detail($id){
    
   $data['page_name'] = 'event/event_detail';
@@ -117,6 +118,54 @@ $this->load->view('front/layout',$data);
 
 }
  
+
+public function news_post()
+{
+    $data['page_name'] = 'News/news_post';
+    $data['page_title'] = 'All News';
+    $this->load->library('pagination');
+    
+        
+    if(isset( $_GET['q'])){
+      $this->db->like('event_title',$_GET['q']);
+      $posts = $this->db->get('posts');
+      $count  = $events->num_rows();
+    }else{
+  $count = $this->db->count_all("posts");
+    }
+
+        $config = array();
+        $config["base_url"] = base_url('home/news_post');
+        $config['total_rows'] =  $count;//here we will count all the data from the table
+        $config['per_page'] = 5;//number of data to be shown on single page
+        $config["uri_segment"] = 3;
+        $config['full_tag_open']    = "<ul class='pagination theme-colored pull-right xs-pull-center mb-xs-40'>";
+        $config['full_tag_close']   = "</ul>";
+        $config['num_tag_open']     = '<li>';
+        $config['num_tag_close']    = '</li>';
+        $config['cur_tag_open']     = "<li class='active'><a href='#'>";
+        $config['cur_tag_close']    = "</a></li>";
+        $config['next_tag_open']    = "<li>";
+        $config['next_tagl_close']  = "</li>";
+        $config['prev_tag_open']    = "<li>";
+        $config['prev_tagl_close']  = "</li>";
+        $config['first_tag_open']   = "<li>";
+        $config['first_tagl_close'] = "</li>";
+        $config['last_tag_open']    = "<li>";
+        $config['last_tagl_close']  = "</li>";
+        $this->pagination->initialize($config);
+        $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+        $this->db->limit($config['per_page'], $page);
+        if(isset( $_GET['q'])){
+          $this->db->like('event_title',$_GET['q']);
+        }
+        $data['posts']= $this->db->get('posts')->result_array();
+        $data["links"] = $this->pagination->create_links();//create the link for pagination
+   
+    $this->load->view('front/layout',$data);
+ }
+
+
 public function contact_us(){
   $data['page_name'] = 'information/contact_us';
   $data['page_title'] = 'Contact Us'; 
@@ -204,11 +253,12 @@ $this->load->view('front/layout', $data);
       $data['page_title'] = 'Registration';
 
       if($_POST){
-        $datap['name']= $this->input->post('name');
+        $datap['username']= $this->input->post('name');
         $datap['email']= $this->input->post('email');
         $datap['password'] = md5($this->input->post('password'));
-        $data['date_registered'] = date('Y-m-d H:i:s'); 
-        $datap['c_number'] = date();
+        $datap['phone'] = $this->input->post('phone');
+        $data['date_registered'] = date('Y-m-d H:i:s');
+        
 
        if($_POST){
   $config['upload_path']          = './uploads/students/';
@@ -718,6 +768,14 @@ public function transport(){
   $this->load->view('front/layout',$data); 
 
 }
+public function gallery(){
+  $data['page_name'] = 'gallery/gallery';
+  $data['page_title'] = 'Gallery';
+  
+
+  $this->load->view('front/layout',$data); 
+
+}
 
 // Offices of USKT
 
@@ -730,6 +788,7 @@ public function transport(){
 
       $this->load->view('front/layout',$data); 
    }
+
    public function teacher()
    {
     $data['page_name'] = 'teachers/teacher_list';
@@ -791,14 +850,65 @@ public function transport(){
     $this->load->view('front/layout',$data); 
    }
 
+   public function teacher_login()
+   {
+   $t_login = $this->session->userdata('teacher_login');
+   if( $t_login ){
+     redirect(base_url().'home/edit_profile/' .$t_login['t_id']);
+   }
+   $data['page_name'] = 'user_registration_form/login_teacher';
+   $data['page_title'] = 'Login'; 
+   if($_POST){
+         $email = $this->input->post('email');
+         $password= md5($this->input->post('password'));
+     if($email != "" &&  $password != ""){
+         $datap = array(
+             'email' =>$email,
+             'password'=>$password
+         );
+         $this->db->where($datap);
+         $this->db->limit(1);
+       $query = $this->db->get('teacher');
+       if($query->num_rows() == 1){
+         $students = $this->db->get_where('teacher', array('email'=> $email))->result_array();                   
+         $sdata = array(
+               'name'=>$students[0]['name'],
+               'email' =>$students[0]['email'],
+               't_id' =>$students[0]['t_id']
+           );
+           $this->session->set_userdata('teacher_login',$sdata);
+           $t_login = $this->session->userdata('teacher_login');
+         redirect(base_url().'home/edit_profile/'. $t_login['t_id']);
+       }else{
+         $this->session->set_flashdata('message_name', 'Error! Email or Password Incorrect.');
+         redirect(base_url().'home/teacher_login');
+       }
+     }else{
+         $this->session->set_flashdata('message_name', 'Error! Email or Password Incorrect.');
+         redirect(base_url().'home/teacher_login');
+     }
+   
+   }
+   $this->load->view('front/layout', $data);
+  }
+   
+
+
    public function edit_profile()
    {
+    $t_login = $this->session->userdata('teacher_login');
+   
+    if( !$t_login ){
+    
+      redirect(base_url().'home/teacher_login/');
+     
+    }
     $data['page_name'] = "teachers/edit_profile";
     $data['page_title'] = "Edit Profile";
     $id= $this->uri->segment(3);
     $data['t_detail'] = $this->db->get_where('teacher', array('t_id'=>$id))->result_array();
     
-    if($_POST)
+    if(isset( $_POST['perinfo']))
     {
      
       $pdata['t_name'] = $this->input->post('name');
@@ -806,12 +916,11 @@ public function transport(){
       $pdata['t_description'] =$this->input->post('description');
       $pdata['t_biography'] =$this->input->post('biography');
       $pdata['t_department'] =$this->input->post('department');
-      $pdata['t_mail'] =$this->input->post('mail');
+      $pdata['email'] =$this->input->post('mail');
       $pdata['t_address'] =$this->input->post('address');
       $pdata['t_contact'] =$this->input->post('contact'); 
-      $pdata['t_mail'] =$this->input->post('mail');
+      
       $pdata['t_research'] =$this->input->post('research'); 
-
 
       $degree = $this->input->post('degree');
       $institute = $this->input->post('institute');
@@ -877,14 +986,37 @@ if($_POST){
       $this->db->where('t_id', $id);    
       $this->db->update('teacher', $pdata);
   
-      $this->session->set_flashdata('message_name', 'program added Succesully.');
+      $this->session->set_flashdata('message_name', 'updated Succesully.');
       redirect(base_url(). "home/teacher_detail/" .$id);
     
  
      }
+     if(isset( $_POST['upass']))
+     {
+       $password = $this->input->post('password');
+     
+
+      if($password != ""){
+              
+         $ndata['password'] = md5($this->input->post('password'));
+         
+     $this->db->where('t_id', $id);
+     $this->db->update('teacher', $ndata);
+       
+      }
+
+    }
+
     $this->load->view('front/layout', $data);
    
   }
+
+  public function teacher_logout(){
+    
+    unset($_SESSION);
+   session_destroy();
+   redirect(base_url());
+ }
 
   public function faculty_detail()
   {

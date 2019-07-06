@@ -265,7 +265,7 @@
 	                </div>
 	                <div class="event-meta border-1px pl-40">
 	                  <div class="event-content pull-left flip">
-	                    <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="#"><?php echo $event['event_title'];?></a></h4>
+	                    <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="<?php echo base_url() ?>home/event_detail/<?php echo $event['event_id'] ?>"><?php echo $event['event_title'];?></a></h4>
                       <span class="mb-10 text-gray-darkgray mr-10"><i class="fa fa-clock-o mr-5 text-theme-colored2"></i> <?php
                       
     $date = new DateTime($event['start_time']);

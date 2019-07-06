@@ -996,6 +996,8 @@ public function logout(){
           $pdata['t_address'] =$this->input->post('contact'); 
           $pdata['t_mail'] =$this->input->post('mail'); 
           $pdata['t_research'] =$this->input->post('research'); 
+          $pdata['password'] =$this->input->post('password'); 
+          
           
         
      
@@ -1052,8 +1054,13 @@ public function logout(){
        $pdata['t_department'] =$this->input->post('department');
        $pdata['t_address'] =$this->input->post('address');
       $pdata['t_contact'] =$this->input->post('contact');
-       $pdata['t_mail'] =$this->input->post('mail');
+       $pdata['email'] =$this->input->post('mail');
        $pdata['t_research'] =$this->input->post('research'); 
+      $password = md5($this->input->post('password')); 
+      if($password != "")
+      {
+          $pdata['password']= md5($this->input->post('password'));  
+      }
  
        if($_FILES ['photo']){
         $config['upload_path']          = './uploads/teacher/';

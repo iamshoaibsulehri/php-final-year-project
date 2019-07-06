@@ -95,9 +95,34 @@ $(document).ready(function(){
           <div class="row">
             <div class="container">
               <div class="col-md-3" id="float">
-                <div class="image" > <img src ="<?php echo base_url()?>templates/front/fonts/login/form.png" style="width: 196px;"/>
-                  <input id="filebutton"name="file" class="input-file margin" type="file">
-                </div>
+              
+
+              <?php 
+    $login = $this->session->userdata('loggin');
+    $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+            $id=$detail[0]['student_id'];
+           $this->db->where('student_id',$id); 
+  foreach($detail as $det){
+   
+  ?>
+  <?php if($det['photo']==""){ ?>
+    <div class="image" > <img src ="<?php echo base_url()?>templates/front/fonts/login/form.png" style="width: 196px;"/>
+    <?php }
+  ?>
+  <?php if($det['photo']!=""){ ?>
+    <div class="image" > <img src ="<?php echo base_url()?>uploads/student_profile/<?php echo $det['photo']?>" style="width: 196px;"/>
+    <?php }
+  ?>
+   <h6>Upload a photo with  <span class="color" style="color:red;">Blue Background<span>.</h6>
+    <input type="file" name="image" class="text-center center-block file-upload">
+  </div>
+  <?php
+  }
+  ?>
+
+
+
+               
               </div>
               <div class="col-md-9 " style="">
                 <!-- Text input-->

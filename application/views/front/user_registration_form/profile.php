@@ -26,18 +26,44 @@
   }
   ?>
 
-  <button class="btn btn-sm btn-success" style="margin-left:60px" name="file" type="submit"><i class=""></i>Update</button>
+  <button class="btn btn-sm btn-success" style="margin:14px 80px;" name="file" type="submit"><i class=""></i>Update</button>
   </form>
   <hr>
   <br>
   <div class="panel panel-default">
     <div class="panel-heading">Application <i class="fa fa-link fa-1x"></i></div>
-    <div class="panel-body"><a href="<?php echo base_url()?>home/registration_form">APPLICATION</a></div>
+    <div class="panel-body" style="font-weight:bold; font-size:15px; color: #212331;"><a href="<?php echo base_url()?>home/registration_form">Application</a></div>
   </div>
   
   <div class="panel panel-default">
-    <div class="panel-heading">Social Media</div>
-    <div class="panel-body"> <i class="fa fa-facebook fa-2x"></i> <i class="fa fa-github fa-2x"></i> <i class="fa fa-twitter fa-2x"></i> <i class="fa fa-pinterest fa-2x"></i> <i class="fa fa-google-plus fa-2x"></i> </div>
+    <div class="panel-heading">Application Status</div>
+    <?php $data = $this->db->get('registration_form', $id)->result_array();
+   foreach($data as $det)
+   {
+
+    if($det['status'] == ""){
+    ?>
+    <div class="panel-body">  <i class="fa fa-clock-o"></i>Not Submitted </div>
+    <?php }
+    ?>
+<?php
+if($det['status'] =="submitted"){
+    ?>
+    <div class="panel-body"  style="font-weight:bold; font-size:15px; color: #212331;">  <i class="fa fa-clock-o"></i> Submitted </div>
+    <?php }
+    ?>
+    <?php
+
+if($det['status'] == "approved"){
+    ?>
+    <div class="panel-body"  style="font-weight:bold; color: green"> <i class="fa fa-clock-o"></i>Approved </div>
+    <?php }
+    ?>
+    
+
+    <?php
+    }
+    ?>
   </div>
 </div>
 <!--/col-3-->
@@ -49,7 +75,57 @@
 </ul>
 <div class="tab-content" style="border-bottom:none !important;">
 
-<div class="tab-pane active" id="home"> </div>
+<div class="tab-pane active" id="home">
+
+<div class="box box-primary" style="height: 100%">
+        <div class="text-body" style="overflow: visible;">
+
+            <h3>Student Application</h3>
+            <hr>
+            <?php $data = $this->db->get('students', $id)->result_array();
+   foreach($data as $det)
+   {
+     ?>
+
+            <div class="box-body">
+                <div class="form-group">
+                    <div class="col-sm-6" style="color:black; font-size: 15px">
+                        <label class="form-label" style="color:black; font-weight:bold; font-size: 17px">Registration Number:</label>
+                        <?php echo $det['student_id']?>
+                    </div>
+                    <div class="col-sm-6" style="color:black; font-size: 15px">
+                        <label class="form-label" style="color:black; font-weight:bold; font-size: 17px">Student Name:</label>
+                        <?php echo $det['username']?>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-6" style="color:black; font-size: 15px">
+                        <label class="form-label" style="color:black; font-weight:bold; font-size: 17px" >Date Registered:</label>
+                            <div style="display: inline;">   <?php echo $det['date_registered']?></div>
+                    </div>
+                    <div class="col-sm-6" style="color:black; font-size: 15px" >
+                        <label class="form-label" style="color:black; font-weight:bold; font-size: 17px">Mobile:</label>
+                        <?php echo $det['phone']?>
+                    </div>
+                </div>
+            </div>
+            <?php
+   }
+   ?>
+           <div class="col-md-10">
+                <div class="box-body">
+                    <blockquote>
+                        <a class="btn btn-info btn-sm pull-right" href="<?php echo base_url()?>home/registration_form"  id="step1"><i class="fa fa-pencil"></i>&nbsp;Start</a>
+                        <p>Student Basic Info Incomplete.</p>
+                        <small>Start Application</small>
+                    </blockquote>
+                </div>
+                </div>
+
+        </div>
+    </div>
+
+ </div>
 <!--/tab-pane-->
 <div class="tab-pane" id="messages">
   <hr>
@@ -169,6 +245,8 @@ password.onchange = validatePassword;
 confirm_password.onkeyup = validatePassword;
 
 </script>
+
+
 <script>
 
 

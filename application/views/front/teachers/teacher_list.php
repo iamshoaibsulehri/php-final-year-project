@@ -29,7 +29,17 @@
                 <div class="search-form">
                   <form>
                     <div class="input-group">
-                      <input type="text" placeholder="Click to Search" name="q" class="form-control search-input">
+                    <select class="form-control" name= "d" id="faculty">
+                    <option value=""> Select </option>
+        <?php $department= $this->db->get('department')->result_array();
+        foreach($department as $dep)
+        { ?>
+        
+        <option value="<?php echo $dep['d_id'] ?>"> <?php echo $dep['d_name'] ?></option>
+<?php
+      }
+     ?>
+      </select>
                       <span class="input-group-btn">
                       <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
                       </span>

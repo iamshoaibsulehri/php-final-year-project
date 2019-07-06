@@ -20,8 +20,8 @@
       </div>
  
       <div class="form-group">
-        <label class="" for="faculty">Faculty</label>
-        <select class="form-control" name= "faculty" id="faculty">
+        <label class="" for="faculty">Department</label>
+        <select class="form-control" name= "Department" id="department">
         <?php $faculty= $this->db->get('faculty')->result_array();
         foreach($faculty as $fac)
         { ?>

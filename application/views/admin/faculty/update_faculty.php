@@ -11,11 +11,11 @@
       </div>
       <div class="form-group">
         <label class="" for="description">Description</label>
-        <textarea  name="description" class="form-control" id="description"><?php echo $blog['blog_description']?> </textarea>
+        <textarea  name="description" class="form-control" id="description"><?php echo $id['f_description']?> </textarea>
       </div>
       <div class="form-group">
         <label class="" for="photo">Photo</label>
-        <input type="file" class="form-control" id="photo" value = "<?php echo $id['d_photo']?>" name="photo"/>
+        <input type="file" class="form-control" id="photo" value = "<?php echo $id['f_photo']?>" name="photo"/>
       </div>
     <div class="form-group">
         <input type="Submit" class="form-control btn btn-info btn-icon-split" id="submit" name="submit"/>

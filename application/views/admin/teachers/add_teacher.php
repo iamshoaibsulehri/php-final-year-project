@@ -32,10 +32,8 @@
       </select>
       </div>
 
-    <div class = "form-group">
-    <label class="" for="mail">Mail Address</label>
-    <input type="text" name = "mail" class = "form-control" id="mail" />
-    </div>
+  
+    
     <div class = "form-group">
     <label class="" for="address">Address</label>
     <input type="text" name = "address" class = "form-control" id="address" />
@@ -52,6 +50,16 @@
     <label class="" for="research">Research</label>
     <input type="text" name = "research" class = "form-control" id="research" />
     </div>
+    <p><strong>Login Information</strong></p>
+    <div class = "form-group">
+    <label class="" for="mail">Mail Address</label>
+    <input type="text" name = "mail" class = "form-control" id="mail" />
+    </div>
+    <div class = "form-group">
+    <label class="" for="password">Password</label>
+    <input type="password" name = "password" class = "form-control" id="password" />
+    </div>
+
     <div class="form-group">
         <label class="" for="photo">Photo</label>
         <input type="file" class="form-control" id="photo" name="photo"/>

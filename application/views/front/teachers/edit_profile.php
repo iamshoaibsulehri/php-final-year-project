@@ -35,6 +35,7 @@
 foreach($t_detail as $detail)
 {
 ?>
+<form name="editprofile-form" method="POST" enctype="multipart/form-data">
     <div class="col-sx-12 col-sm-3 col-md-3">
       <div class="doctor-thumb">
         <img src="
@@ -51,7 +52,7 @@ foreach($t_detail as $detail)
             <li class="mt-0 text-gray-silver">
               <strong class="text-gray-lighter">Email</strong>
               <br>
-                <?php echo $detail['t_mail'] ?>
+                <?php echo $detail['email'] ?>
               </li>
               <li class="text-gray-silver">
                 <strong class="text-gray-lighter">Phone</strong>
@@ -59,15 +60,13 @@ foreach($t_detail as $detail)
                   <?php echo $detail['t_contact'] ?>
                 </li>
               </ul>
-              <a class="btn btn-info btn-flat mt-10 mb-sm-30" href="#">Edit Profile</a>
-              <a class="btn btn-danger btn-flat mt-10 mb-sm-30" href="#">Logout</a>
+           
+              <a class="btn btn-danger btn-flat mt-10 mb-sm-30" href="<?php echo base_url()?>home/teacher_logout">Logout</a>
             </div>
           </div>
-      <?php
-        }
-        ?>
+     
 <div class="col-xs-12 col-sm-9 col-md-9">
-<form name="editprofile-form" method="post">
+
 <div class="icon-box mb-0 p-0">
 <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
 <i class="fa fa-user"></i>
@@ -86,7 +85,7 @@ foreach($t_detail as $detail)
 <label>Email</label>
 <input name="mail"value="
 
-<?php echo $detail['t_mail'] ?>" class="form-control" type="email">
+<?php echo $detail['email'] ?>" class="form-control" type="email">
 </div>
 </div>
 <div class="row">
@@ -100,8 +99,7 @@ foreach($t_detail as $detail)
     <?php $departments= $this->db->get('department')->result_array();
 foreach($departments as $department)
 { ?>
-    <option value="
-      <?php echo $department['d_id'] ?>"><?php echo $department['d_name'] ?>
+    <option value="<?php echo $department['d_id'] ?>" <?php if($detail['t_department'] == $department['d_id']){ echo "selected"; } ?>><?php echo $department['d_name'] ?>
     </option>
     <?php
 }
@@ -225,11 +223,16 @@ foreach($e_detail as $te_detail){
     
 
     <div class="form-group">
-      <button class="btn btn-dark btn-lg mt-15" type="submit">Update</button>
+      <button class="btn btn-dark btn-lg mt-15" name="perinfo" type="submit">Update</button>
     </div>
+    <?php
+        }
+        ?>
   </form>
+
+
   <hr class="mt-70 mb-70">
-    <form name="editprofile-form" method="post">
+    <form name="editprofile-form2"  method="POST" enctype="multipart/form-data">
       <div class="icon-box mb-0 p-0">
         <a href="#" class="icon icon-bordered icon-rounded icon-sm pull-left mb-0 mr-10">
           <i class="fa fa-key"></i>
@@ -241,21 +244,16 @@ foreach($e_detail as $te_detail){
         <div class="row">
           <div class="form-group col-md-6">
             <label>Choose Password</label>
-            <input name="form_choose_password" class="form-control" type="text">
+            <input name="password" id="password" class="form-control" type="text">
             </div>
             <div class="form-group col-md-6">
               <label>Re-enter Password</label>
-              <input name="form_re_enter_password"  class="form-control" type="text">
+              <input  name="confirm_password"  id="confirm_password" class="form-control" type="text">
               </div>
             </div>
-            <div class="row">
-              <div class="form-group col-md-12">
-                <label>Old Password</label>
-                <input name="form_old_password" class="form-control" type="text">
-                </div>
-              </div>
+           
               <div class="form-group">
-                <button class="btn btn-dark btn-lg mt-15" type="submit">Update</button>
+                <button class="btn btn-dark btn-lg mt-15" name="upass" type="submit">Update</button>
               </div>
             </form>
           </div>
@@ -265,6 +263,22 @@ foreach($e_detail as $te_detail){
   </section>
 </div>
 <!-- end main-content -->
+<script>
+var password = document.getElementById("password")
+  , confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+    confirm_password.setCustomValidity("Passwords Don't Match");
+  } else {
+    confirm_password.setCustomValidity('');
+  }
+}
+
+password.onchange = validatePassword;
+confirm_password.onkeyup = validatePassword;
+
+</script>
 
 <script>
 $(document).ready(function() {

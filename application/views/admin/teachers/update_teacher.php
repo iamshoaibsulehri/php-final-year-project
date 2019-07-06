@@ -29,18 +29,23 @@ foreach($t_id as $id)
         <?php $departments= $this->db->get('department')->result_array();
         foreach($departments as $department)
         { ?>
-        <option value="<?php echo $department['d_id'] ?>"> <?php echo $department['d_name'] ?></option>
+        <option value="<?php echo $department['d_id'] ?>" <?php if($id['t_department'] == $department['d_id']){ echo "selected"; } ?>> <?php echo $department['d_name'] ?></option>
 <?php
       }
      ?>
       </select>
       </div>
 
+      <p><strong>Login Information</strong></p>
     <div class = "form-group">
     <label class="" for="mail">Mail Address</label>
-    <input type="text" name = "mail" value="<?php echo $id['t_mail']?>" class = "form-control" id="mail" />
+    <input type="text" name = "mail" <?php echo $id['email']?> class = "form-control" id="mail" />
     </div>
-  
+    <div class = "form-group">
+    <label class="" for="password">Password</label>
+    <input type="password" name = "password" class = "form-control" id="password" />
+    </div>
+
     <div class="form-group">
         <label class="" for="photo">Photo</label>
         <input type="file" class="form-control" id="photo" name="photo"/>

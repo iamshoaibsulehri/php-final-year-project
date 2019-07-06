@@ -32,7 +32,7 @@
                         echo $department['d_name'];
                       }
                       ?></td> 
-                       <td><?php echo $teacher['t_mail'] ?></td>
+                       <td><?php echo $teacher['email'] ?></td>
                       <td style="text-align: right">
                       <a style="padding: 0 5px;" href="<?php echo  base_url() ?>admin/update_teacher/<?php echo $teacher['t_id']; ?>"><i class="fa fa-edit"></i></a>
                       <a class="t_trash" href="<?php echo base_url() ?>admin/delete_teacher/<?php echo $teacher['t_id']; ?>"><i class="fa fa-trash"></i></a>
