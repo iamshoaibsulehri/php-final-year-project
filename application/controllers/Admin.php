@@ -1988,6 +1988,39 @@ public function registered_event()
     $data['notification'] = $this->db->get('notifications')->result_array();
     $this->load->view('admin/layout', $data);
 }
+
+public function new_user_registrations()
+{
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+    $data['page_name'] = "registrations/new_user_registrations";
+    $data['page_title'] = "All Registered";
+    
+   
+    $this->load->view('admin/layout', $data);
+}
+
+public function user_detail()
+{
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+    $data['page_name'] = "registrations/detail_of_user";
+    $data['page_title'] = "Detail";
+    $id = $this->uri->segment(3);
+    $data['students_detail'] = $this->db->get_where('students' ,array('student_id'=>$id))->result_array();
+  
+
+   
+    $this->load->view('admin/layout', $data);
+}
+
+
 public function registered_detail()
 {
     

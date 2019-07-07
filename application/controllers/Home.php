@@ -258,8 +258,8 @@ $this->load->view('front/layout', $data);
         $datap['password'] = md5($this->input->post('password'));
         $datap['phone'] = $this->input->post('phone');
         $data['date_registered'] = date('Y-m-d H:i:s');
-        
-
+        $data['application_status'] = 'Not Submitted';
+       
        if($_POST){
   $config['upload_path']          = './uploads/students/';
   $config['allowed_types']        = 'gif|jpg|png';
@@ -279,9 +279,6 @@ $this->load->view('front/layout', $data);
          }
 
 }
-
-
-
         $check_data = array(
           'email' => $this->input->post('email')
         );
@@ -298,6 +295,15 @@ $this->load->view('front/layout', $data);
         $datac['email']= $this->input->post('email');
        $datac['student_id'] = $this->db->insert_id();
         $this->db->insert('registration_form',$datac);
+
+         
+        
+        $datan['not_type']= 'User Registration';
+       
+       $datan['type_id'] = $datac['student_id'];
+        $this->db->insert('notifications',$datan);
+
+        
         $this->session->set_flashdata('message_name', 'Registered successfully. You can login now.');
         redirect(base_url()."home/user_login/");
       }                    
@@ -605,9 +611,14 @@ exit;
  $datap['status']= 'submitted';
 
 
+$datastudent['application_status'] = 'submitted';
+
 }
  $this->db->where('student_id',$id);
    $this->db->update('registration_form' , $datap);
+
+   $this->db->where('student_id',$id);
+   $this->db->update('students' , $datastudent);
       echo '<div class="alert alert-success">Record Saved.</div>';
    exit;
 }
