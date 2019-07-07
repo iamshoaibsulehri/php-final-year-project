@@ -390,7 +390,7 @@ public function registration_form($para1 = NULL,$para2 =NULL,$para3 = NULL){
 
     if($para1 == "personal_info")
     {
-  
+ 
       $datap['name']= $this->input->post('first_name');
       $datap['email']= $this->input->post('email');
       $datap['gender']= $this->input->post('gender');
@@ -441,6 +441,33 @@ public function registration_form($para1 = NULL,$para2 =NULL,$para3 = NULL){
       $datap['e_relation']= $this->input->post('e_relation');
       $datap['e_mail']= $this->input->post('e_email');
 
+      
+      if(isset( $_FILES['photo'])){
+        if($_FILES){
+         $config['upload_path']          = './uploads/student_profile/';
+         $config['allowed_types']        = 'gif|jpg|png';
+         $config['max_size']             = 10000000;
+         $this->load->library('upload', $config);
+         $this->upload->initialize($config);
+         if ( ! $this->upload->do_upload('photo'))
+         {
+             $error = array('error' => $this->upload->display_errors());
+                
+                }
+         else
+         {
+            $photo = array('upload_data' => $this->upload->data());
+        
+            $ndata['photo']= $photo['upload_data']['file_name'];
+            $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+            $id=$detail[0]['student_id'];
+           $this->db->where('student_id',$id);
+           
+           $this->db->update('students' , $ndata);
+                }
+   
+       }
+      }
     
 
          
@@ -568,7 +595,7 @@ exit;
 
   if($columns[0]['status']==""){
    $this->load->library('email');
-   $this->email->from('smartprix36@gmail.com', 'Muhammad Salman');
+   $this->email->from('smartprix36@gmail.com', 'Muhammad Shoaib');
  $this->email->to('shoaibrajput294@gmail.com');
   
  $this->email->subject('USKT Admission Application');
@@ -775,6 +802,22 @@ public function gallery(){
 
   $this->load->view('front/layout',$data); 
 
+}
+
+public function leader(){
+  $data['page_name'] = 'information/leader';
+  $data['page_title'] = 'Leader';
+ 
+
+  $this->load->view('front/layout',$data); 
+}
+
+public function career(){
+  $data['page_name'] = 'information/career';
+  $data['page_title'] = 'Career';
+ 
+
+  $this->load->view('front/layout',$data); 
 }
 
 // Offices of USKT

@@ -82,10 +82,13 @@ if($det['status'] == "approved"){
 
             <h3>Student Application</h3>
             <hr>
-            <?php $data = $this->db->get('students', $id)->result_array();
-   foreach($data as $det)
-   {
-     ?>
+            <?php 
+    $login = $this->session->userdata('loggin');
+    $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+            $id=$detail[0]['student_id'];
+           $this->db->where('student_id',$id); 
+  foreach($detail as $det){
+  ?>
 
             <div class="box-body">
                 <div class="form-group">
@@ -101,7 +104,7 @@ if($det['status'] == "approved"){
                 <div class="form-group">
                     <div class="col-sm-6" style="color:black; font-size: 15px">
                         <label class="form-label" style="color:black; font-weight:bold; font-size: 17px" >Date Registered:</label>
-                            <div style="display: inline;">   <?php echo $det['date_registered']?></div>
+                            <div style="display: inline;">  <?php echo date('d/m/y - h:i A', strtotime($det['date_registered'])); ?></div>
                     </div>
                     <div class="col-sm-6" style="color:black; font-size: 15px" >
                         <label class="form-label" style="color:black; font-weight:bold; font-size: 17px">Mobile:</label>
@@ -131,8 +134,12 @@ if($det['status'] == "approved"){
   <hr>
   <form class="form" action="" method="POST" id="registrationForm">
     <?php
+     $login = $this->session->userdata('loggin');
+    
                   $detail_reg = $this->db->get_where('registration_form', array('email'=>$login['email']))->result_array();
-           foreach($detail_reg as $det_rg)
+                  
+                  foreach($detail_reg as $det_rg)
+        
           
            {
              ?>

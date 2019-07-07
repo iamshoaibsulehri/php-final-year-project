@@ -65,6 +65,52 @@
 <!-- End News -->
 
 <li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsehome" aria-expanded="true" aria-controls="collapsegallery">
+    <i class="fas fa-graduation-cap"></i>
+    <span>Home Settings</span>
+  </a>
+  <div id="collapsehome" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Action:</h6>
+      
+      <!--Gallery -->
+      <a class="collapse-item " href="<?php echo base_url() ?>admin/home_settings">
+      <i class="fas fa-graduation-cap"></i>
+       <span>Basic Home Setting</span>
+      </a>
+      <!--Gallery Add-->
+     
+    </div>
+  </div>
+</li>
+<!-- end Home Settings -->
+
+<li class="nav-item">
+  <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsetime" aria-expanded="true" aria-controls="collapsegallery">
+    <i class="fas fa-graduation-cap"></i>
+    <span>Time</span>
+  </a>
+  <div id="collapsetime" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+    <div class="bg-white py-2 collapse-inner rounded">
+      <h6 class="collapse-header">Action:</h6>
+      
+      <!--Gallery -->
+      <a class="collapse-item " href="<?php echo base_url() ?>admin/list_fee_time">
+      <i class="fas fa-graduation-cap"></i>
+       <span>All List</span>
+      </a>
+      <!--Gallery Add-->
+      <!--Blog Add-->
+      <a class="collapse-item " href="<?php echo base_url() ?>admin/add_fee_time">
+      <i class="fas fa-graduation-cap"></i>
+       <span>Add TimeTable </span>
+      </a>
+    </div>
+  </div>
+</li>
+<!-- end Home Settings -->
+
+<li class="nav-item">
   <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseblog" aria-expanded="true" aria-controls="collapseblog">
     <i class="fas fa-graduation-cap"></i>
     <span>Blog</span>

@@ -114,7 +114,7 @@ $(document).ready(function(){
     <?php }
   ?>
    <h6>Upload a photo with  <span class="color" style="color:red;">Blue Background<span>.</h6>
-    <input type="file" name="image" class="text-center center-block file-upload">
+    <input type="file" name="photo" class="text-center center-block file-upload">
   </div>
   <?php
   }

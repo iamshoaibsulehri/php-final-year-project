@@ -93,7 +93,7 @@ h1 {
       $login = $this->session->userdata('loggin');
                           if( $login ){
                             ?>
-  <nav class="navbar bg-blue nav-lg header-nav">
+  <nav class="navbar bg-blue nav-lg">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle userhead_toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -106,17 +106,18 @@ h1 {
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
     <ul class=" nav navbar-nav  menu" style="">
-    <li class="active" ><a style="    font-size: 22px; font-weight: bold;" href="#">University of Sialkot</a></li>
+        <li class="active"><a  style="font-weight: bolder;font-size: 21px;" href="#">University of Sialkot</a></li>
         
-    <li><a href="<?php echo base_url()?>home/policies">Policies</a></li>
+        <li><a href="<?php echo base_url()?>home/policies">Policies</a></li>
         <li><a href="<?php echo base_url()?>home/faqs">FAQs</a></li>
       </ul>
-      <ul class="nav navbar-nav navbar-right" style="">
-        <li class="padding"><a href="<?php echo base_url()?>home/user_profile"><span class="fa fa-user "></span> User Profile</a>
-        <ul class="dropdown-menu" style="    background: transparent; margin: -5px -56px  0px 0px;">
+      <ul class="nav navbar-nav navbar-right" style=" padding: 32px;">
+       
+        <a class="dropdown-toggle fa fa-user" data-toggle="dropdown" href="<?php echo base_url()?>home/user_profile">User Profile<span class="caret"></span></a>
+          <ul class="dropdown-menu">
         <li><a href="<?php echo base_url()?>home/user_logout">Logout</a></li>
      </ul>
-      </li>
+    </li>
         
       </ul>
     </div>

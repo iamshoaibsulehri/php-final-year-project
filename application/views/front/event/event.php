@@ -58,7 +58,13 @@
                       echo $first2; ?></li>
                     </ul>
                     <ul>
-                      <li class="mb-10 text-theme-colored"><i class="fa fa-clock-o mr-5"></i> at 5.00 pm - 7.30 pm</li>
+                      <li class="mb-10 text-theme-colored"><i class="fa fa-clock-o mr-5"></i> <?php
+                      
+                      $date = new DateTime($event['start_time']);
+                      echo $date->format('h:i a');
+                      ?> - <?php 
+                      $date = new DateTime($event['end_time']);
+                      echo $date->format('h:i a');?></li>
                       <li class="text-theme-colored"><i class="fa fa-map-marker mr-5"></i> <?php  echo $event['event_location']?></li>
                     </ul>
                   </div>

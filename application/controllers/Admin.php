@@ -1462,6 +1462,139 @@ $pdata['p_fee'] =$datac;
        }
 
    }
+
+   public function list_fee_time()
+   {
+       $login = $this->session->userdata('admin_loggin');
+       if( !$login ){
+           redirect(base_url().'admin/');
+       }
+       
+       $data['page_name'] = "fee_time_section/All_fee_time";;
+       $data['page_title'] = "All List";
+       $data['list_detail'] = $this->db->get('time_fee')->result_array();
+
+       $this->load->view('admin/layout', $data);
+   }
+
+   public function add_fee_time()
+    {
+        $login = $this->session->userdata('admin_loggin');
+        if( !$login ){
+            redirect(base_url().'admin/');
+        }
+        
+        
+       $data['page_name'] = "fee_time_section/add_fee_time";
+       $data['page_title'] = "Add New";
+       
+       
+        if($_POST)
+        {
+            $pdata['tf_program'] = $this->input->post('program');
+            $pdata['program_category'] = $this->input->post('category');
+            $pdata['tf_fee'] = $this->input->post('fee');
+            $pdata['tf_credit'] = $this->input->post('credit');
+
+            
+            
+            if($_FILES)
+            {
+            $config['upload_path']          = './uploads/timetable/';
+            $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+            $config['max_size']             = 10000000;
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            if ( ! $this->upload->do_upload('file'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+              
+                   }
+            else
+            {
+               $photo = array('upload_data' => $this->upload->data());
+           
+               $pdata['tf_time']= $photo['upload_data']['file_name'];
+                   }
+
+            }
+           
+            
+            $this->db->insert('time_fee', $pdata);
+            $this->session->set_flashdata('message_name', ' successfully added.');
+            redirect(base_url()."admin/list_fee_time/" .$id);
+        }
+            $this->load->view('admin/layout', $data);
+            
+            
+}
+
+  public function update_fee_time()
+  {
+   $login = $this->session->userdata('admin_loggin');
+   if( !$login ){
+       redirect(base_url().'admin/');
+   }
+   
+   $data['page_name'] = "fee_time_section/update_fee_time";;
+   $data['page_title'] = "Update Detail";
+   $id= $this->uri->segment(3);
+   $data['tf_id'] = $this->db->get_where('time_fee', array('tf_id'=>$id))->result_array();
+
+   if($_POST)
+        {
+            $pdata['tf-program'] = $this->input->post('program');
+            $pdata['program_category'] = $this->input->post('category');
+            $pdata['tf_fee'] = $this->input->post('fee');
+            $pdata['tf_credit'] = $this->input->post('credit');
+            
+           if($_FILES['file'])
+            {
+            $config['upload_path']          = './uploads/timetable/';
+            $config['allowed_types']        = 'xls|csv|word|PNG|JPEG|jpeg|JPG';
+            $config['max_size']             = 10000000;
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            if ( ! $this->upload->do_upload('file'))
+            {
+                $error = array('error' => $this->upload->display_errors());
+                  
+                   }
+            else
+            {
+               $photo = array('upload_data' => $this->upload->data());
+           
+               $pdata['tf_time']= $photo['upload_data']['file_name'];
+                   }
+
+            }
+            $id = $this->uri->segment(3);
+            $this->db->where('tf_id', $id);
+            $this->db->update('time_fee', $pdata);
+            $this->session->set_flashdata('message_name', ' successfully added.');
+        }
+   $this->load->view('admin/layout', $data);
+   
+  }
+
+  public function delete_fee_time()
+  {
+   $login = $this->session->userdata('admin_loggin');
+   if( !$login ){
+       redirect(base_url().'admin/');
+   }
+   
+   $id = $this->uri->segment(3);
+      if($id)
+      {
+          $this->db->where('tf_id', $id);
+          $this->db->delete('time_fee');
+          $this->session->set_flashdata('message_name', 'Item successfully Deleted.');
+          redirect(base_url()."admin/list_fee_time");
+      }
+
+  }
+
    public function pages()
    {
     $login = $this->session->userdata('admin_loggin');

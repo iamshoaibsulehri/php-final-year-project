@@ -1,3 +1,8 @@
+<style>
+
+
+</style>
+
 <nav class="navbar bg-blue nav-lg">
   <div class="container">
     <div class="navbar-header">
@@ -17,7 +22,9 @@
         <li><a href="<?php echo base_url()?>home/faqs">FAQs</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right" style=" padding: 32px;">
-        <li><a href="<?php echo base_url()?>home/user_profile"><span class="fa fa-user"></span> User Profile</a>
+       
+        <a class="dropdown-toggle fa fa-user" data-toggle="dropdown" href="<?php echo base_url()?>home/user_profile">User Profile<span class="caret"></span></a>
+          <ul class="dropdown-menu">
         <ul class="dropdown-menu">
         <li><a href="<?php echo base_url()?>home/user_logout">Logout</a></li>
      </ul>

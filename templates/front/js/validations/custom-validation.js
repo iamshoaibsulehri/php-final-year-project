@@ -8,14 +8,16 @@ $(function() {
 
             // JQuery's awesome submit handler.
             submitHandler: function(form) {
-                $form_data = $("#form").serialize();
+                var  $form_data = new FormData( $("#form")[0] );
 
                 $url = $("#form").attr('action');
                 $.ajax({
                     url: $url,
                     type: "POST",
                     data: $form_data,
+                    async : false,
                     cache: false,
+                    contentType : false,
                     processData: false,
                     success: function(data) {
                         $(".result1").html(data);

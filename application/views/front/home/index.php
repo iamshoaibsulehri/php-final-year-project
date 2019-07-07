@@ -34,7 +34,7 @@
               </div>
               <div class="feature-title">
               	<h3>Be Industrial Leader</h3>
-              	<a href="<?php echo base_url()?>home/under_construction" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
+              	<a href="<?php echo base_url()?>home/leader" class="read-more font-roboto-slab text-theme-colored2">Read More</a>
               </div>
             </div>
           </div>
@@ -266,7 +266,8 @@
 	                <div class="event-meta border-1px pl-40">
 	                  <div class="event-content pull-left flip">
 	                    <h4 class="event-title media-heading font-roboto-slab font-weight-700"><a href="<?php echo base_url() ?>home/event_detail/<?php echo $event['event_id'] ?>"><?php echo $event['event_title'];?></a></h4>
-                      <span class="mb-10 text-gray-darkgray mr-10"><i class="fa fa-clock-o mr-5 text-theme-colored2"></i> <?php
+                      <span class="mb-10 text-gray-darkgray mr-10"><i class="fa fa-clock-o mr-5 text-theme-colored2"></i>
+                       <?php
                       
     $date = new DateTime($event['start_time']);
     echo $date->format('h:i a');

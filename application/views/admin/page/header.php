@@ -2,7 +2,7 @@
  <?php
 $user_data = $this->session->userdata('admin_loggin');
 
-$adminuser = $this->db->get_where('users', array('username'=>$user_data['username']))->result_array();
+$adminuser = $this->db->get_where('users', array('email'=>$user_data['email']))->result_array();
 
  ?>
 
