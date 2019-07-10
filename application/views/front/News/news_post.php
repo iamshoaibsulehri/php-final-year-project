@@ -14,15 +14,24 @@
                     <img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" alt="" class="img-fullwidth">
                     <div class="entry-date media-left text-center flip bg-theme-colored2 pt-5 pr-15 pb-5 pl-15">
                       <ul>
-                        <li class="font-16 text-white font-weight-600 border-bottom">28</li>
-                        <li class="font-12 text-white text-uppercase">Feb</li>
+                        <li class="font-16 text-white font-weight-600 border-bottom"><?php $first = $post['posted_at'];
+                      $first2 = $first[8] . $first[9];
+                      echo $first2; ?></li>
+                        <li class="font-12 text-white text-uppercase"><?php $first = $post['posted_at'];
+                      $first2 = $first[5] . $first[6];
+                      $monthName = date("F", strtotime($first2));
+                      echo $monthName = $monthName[0] . $monthName[1]. $monthName[2]; ?></li>
                       </ul>
                     </div>
                   </div>
                   <div class="event-list-details border-1px bg-white clearfix p-20 pt-15 pb-30">
                     <h4 class="text-uppercase font-weight-600 mb-5"><a href="<?php echo base_url()?>home//news_post/<?php echo $post['post_id']?>"><?php echo $post['post_title']?></a></h4>
                     <ul class="list-inline">
-                      <li><i class="fa fa-clock-o text-theme-colored2"></i> 5.00 pm - 7.30 pm</li>
+                      <li><i class="fa fa-clock-o text-theme-colored2"></i> 
+                      <?php
+                      $date = new DateTime($post['posted_at']);echo $date->format('h:i a');
+                      ?>
+                      </li>
                       <li> <i class="fa fa-map-marker text-theme-colored2"></i> 25 Newyork City.</li>
                     </ul>
                     <p class="mt-15"><?php $limit = $post['post_description']; echo word_limiter($limit, 5);?></p> <a href="#" class="btn btn-default mt-5">View </a>
@@ -56,9 +65,11 @@
                 <div class="search-form">
                   <form>
                     <div class="input-group">
-                      <input type="text" placeholder="Click to Search" class="form-control search-input">
+                    <input type="text" placeholder="Click to Search" name="q" class="form-control search-input">
+                      <span class="input-group-btn">
                       <span class="input-group-btn">
                       <button type="submit" class="btn search-button"><i class="fa fa-search"></i></button>
+                      </span>
                       </span>
                     </div>
                   </form>

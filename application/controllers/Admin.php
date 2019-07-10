@@ -231,9 +231,13 @@ public function logout(){
           
             $pdata['post_title'] = $this->input->post('title');
             $pdata['post_description'] =$this->input->post('description');
-            $pdata['post_author'] = $this->input->post('author');
+            $pdata['post_author'] = $login['username'];
             $pdata['post_tags'] = $this->input->post('tags');
+            $pdata['location'] = $this->input->post('location');
             $pdata['post_category'] = $this->input->post('category'); 
+            $data['posted_at'] = date('Y-m-d H:i:s');
+            
+            
            
             if($_FILES['photo']){
                 $config['upload_path']          = './uploads/posts/';
@@ -279,7 +283,7 @@ public function logout(){
            {
             $pdata['post_title'] = $this->input->post('title');
             $pdata['post_description'] =$this->input->post('description');
-            $pdata['post_author'] = $this->input->post('author');
+            $pdata['location'] = $this->input->post('location');
             $pdata['post_tags'] = $this->input->post('tags');
             $pdata['post_category'] = $this->input->post('category');  
            

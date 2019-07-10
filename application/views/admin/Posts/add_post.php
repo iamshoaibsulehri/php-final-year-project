@@ -10,8 +10,8 @@
         <textarea  name="description"  id="editor"></textarea>
       </div>
       <div class="form-group">
-        <label class="" for="author">Author</label>
-        <input type="text" name="author" class="form-control" id="author"/>
+        <label class="" for="location">Location</label>
+        <input type="text" name="location" class="form-control" id="location"/>
       </div>
       <div class="form-group">
         <label class="" for="Tags">Tags</label>

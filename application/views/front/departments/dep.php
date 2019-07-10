@@ -3,6 +3,7 @@
     <!-- Section: inner-header -->
     
 <?php foreach($department_detail as $dep) 
+
 {
 ?>
     <section class="inner-header divider layer-overlay overlay-theme-colored-7" style="background-image: url(<?php echo base_url()?>uploads/department/<?php echo $dep['d_photo']?>);">
@@ -26,6 +27,7 @@
 
 <section id="departments-description" >
   <div class="container mt-30 mb-30 pt-30 pb-30">
+<h3 style="text-align:center"><?php echo $dep['top_title']?></h3>
         <div class="row">
         <div class="wpb_wrapper">
 			<p style="text-align: justify;font-size: 15px;">
@@ -61,11 +63,13 @@
              ?>
          <div class="col-md-6">
            <div class="box top-course-thumb mt-sm-30">
+           <a href="<?php echo base_url()?>home/program_detail/<?php echo $uc['p_id']?>">
                 <img class="img-fullwidth" src="<?php echo base_url()?>uploads/program/<?php echo $uc['p_photo']?>" alt="">
                 <div class="desc-box">
                 <i class="fa fa-desktop" style="color:#ffffff; font-size:22px; line-height:22px; vertical-align: middle;     margin-right: 488px;"></i>
                 <p class="duration text-theme-colored-2"><?php echo $uc['p_duration']?> Years /  <?php echo $uc['p_samester']?> Samesters /  <?php echo $uc['p_credit']?> Hours</p>
                   <h4 class="name"><?php echo $uc['p_name']?></h4>
+                  </a>
                 </div>
            </div>
            <br>
@@ -96,15 +100,18 @@
               $this->db->where('p_department',$id);
              $ucourse  = $this->db->get('program')->result_array();
              foreach($ucourse as $uc)
+           
              {
              ?>
          <div class="col-md-6">
            <div class="box top-course-thumb mt-sm-30">
+                <a href="<?php echo base_url()?>home/program_detail/<?php echo $uc['p_id']?>">
                 <img class="img-fullwidth" src="<?php echo base_url()?>uploads/program/<?php echo $uc['p_photo']?>" alt="">
                 <div class="desc-box">
                 <i class="fa fa-desktop" style="color:#ffffff; font-size:22px; line-height:22px; vertical-align: middle;     margin-right: 488px;"></i>
                 <p class="duration text-theme-colored-2"><?php echo $uc['p_duration']?> Years /  <?php echo $uc['p_samester']?> Samesters /  <?php echo $uc['p_credit']?> Hours</p>
                   <h4 class="name"><?php echo $uc['p_name']?></h4>
+                  </a>
                 </div>
            </div>
            <br>

@@ -93,6 +93,7 @@ h1 {
       $login = $this->session->userdata('loggin');
                           if( $login ){
                             ?>
+                            <div class="header-nav">
   <nav class="navbar bg-blue nav-lg">
   <div class="container">
     <div class="navbar-header">
@@ -123,6 +124,7 @@ h1 {
     </div>
   </div>
 </nav>
+</div>
                           
                         <li>
                         <?php 

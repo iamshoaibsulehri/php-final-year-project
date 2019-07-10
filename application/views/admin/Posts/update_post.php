@@ -13,8 +13,8 @@
         <textarea  name="description"  id="editor"><?php echo $id['post_description']?> </textarea>
       </div>
       <div class="form-group">
-        <label class="" for="author">Author</label>
-        <input type="text" name="author" class="form-control" value="<?php echo $id['post_author']?>" id="author"/>
+        <label class="" for="author">Location</label>
+        <input type="text" name="Location" class="form-control" value="<?php echo $id['location']?>" id="location"/>
       </div>
       <div class="form-group">
         <label class="" for="Tags">Tags</label>

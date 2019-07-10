@@ -127,9 +127,9 @@ public function news_post()
     
         
     if(isset( $_GET['q'])){
-      $this->db->like('event_title',$_GET['q']);
+      $this->db->like('post_title',$_GET['q']);
       $posts = $this->db->get('posts');
-      $count  = $events->num_rows();
+      $count  = $posts->num_rows();
     }else{
   $count = $this->db->count_all("posts");
     }
@@ -157,13 +157,22 @@ public function news_post()
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
         $this->db->limit($config['per_page'], $page);
         if(isset( $_GET['q'])){
-          $this->db->like('event_title',$_GET['q']);
+          $this->db->like('post_title',$_GET['q']);
         }
         $data['posts']= $this->db->get('posts')->result_array();
         $data["links"] = $this->pagination->create_links();//create the link for pagination
    
     $this->load->view('front/layout',$data);
  }
+
+ public function news_post_detail($id){
+  $data['page_name'] = 'News/news_post_detail';
+  $data['page_title'] = 'Post Detail'; 
+  if($id){
+    $data['post_detail']  =  $this->db->get_where('posts', array('post_id'=>$id))->result_array();
+   }
+  $this->load->view('front/layout',$data);
+}
 
 
 public function contact_us(){
