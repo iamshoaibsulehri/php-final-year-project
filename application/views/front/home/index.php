@@ -53,7 +53,7 @@
             <div class="latest-posts">
             
             <?php 
-            $this->db->limit(5);
+            $this->db->limit(3);
             $posts = $this->db->get('posts')->result_array();
             foreach($posts as $post)
             {
@@ -312,7 +312,7 @@
                   </div>
                   <div id="collapse2" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
                     <div class="panel-body">
-                    An online application account can be created through the USKT website i.e. http://www.uskt.edu.pk/Admissionslogin.aspx.
+                    An online application account can be created through the USKT website.
 To create an online application account with the USKT Online Application System, you are required to have a valid email address.
                     </div>
                   </div>
@@ -483,8 +483,13 @@ To create an online application account with the USKT Online Application System,
                       </div>                    
                       <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
                         <ul>
-                          <li class="font-16 text-white font-weight-600">28</li>
-                          <li class="font-12 text-white text-uppercase">Feb</li>
+                          <li class="font-16 text-white font-weight-600"><?php $first = $post['posted_at'];
+                      $first2 = $first[8] . $first[9];
+                      echo $first2; ?></li>
+                          <li class="font-12 text-white text-uppercase"><?php $first = $post['posted_at'];
+                      $first2 = $first[5] . $first[6];
+                      $monthName = date("F", strtotime($first2));
+                      echo $monthName = $monthName[0] . $monthName[1]. $monthName[2];?></li>
                         </ul>
                       </div>
                     </div>
@@ -492,7 +497,7 @@ To create an online application account with the USKT Online Application System,
                       <div class="entry-meta media no-bg no-border mt-0 mb-10">
                         <div class="media-body pl-0">
                           <div class="event-content pull-left flip">
-                            <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5"><a href="<?php echo base_url()?>home/under_construction"><?php echo $post['post_title']?></a></h4>
+                            <h4 class="entry-title text-white text-uppercase font-weight-600 m-0 mt-5"><a href="<?php echo base_url()?>home/news_post_detail/<?php echo $post['post_id']?>"><?php echo $post['post_title']?></a></h4>
                             <ul class="list-inline">
                               <li><i class="fa fa-user-o mr-5 text-theme-colored2"></i><?php echo $post['post_author']?></li>
                               

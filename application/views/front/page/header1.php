@@ -89,50 +89,7 @@ h1 {
 }
 </style>
      
-     <?php    
-      $login = $this->session->userdata('loggin');
-                          if( $login ){
-                            ?>
-                            <div class="header-nav">
-  <nav class="navbar bg-blue nav-lg">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle userhead_toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <img class="logo-default" src="<?php echo base_url()?>templates/front/images/logo-wide2.png" style=" width: 100px; height: auto; padding: 16px;" alt="">
-    
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-    <ul class=" nav navbar-nav  menu" style="">
-        <li class="active"><a  style="font-weight: bolder;font-size: 21px;" href="#">University of Sialkot</a></li>
-        
-        <li><a href="<?php echo base_url()?>home/policies">Policies</a></li>
-        <li><a href="<?php echo base_url()?>home/faqs">FAQs</a></li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right" style=" padding: 32px;">
-       
-        <a class="dropdown-toggle fa fa-user" data-toggle="dropdown" href="<?php echo base_url()?>home/user_profile">User Profile<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-        <li><a href="<?php echo base_url()?>home/user_logout">Logout</a></li>
-     </ul>
-    </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-</div>
-                          
-                        <li>
-                        <?php 
-                          }
-                          else
-                          {
-                        ?>
-
+  
 
 
 <header id="header" class="header">
@@ -419,10 +376,16 @@ h1 {
   <article class="post clearfix">
   <div class="entry-header">
 <li><a href="<?php echo base_url()?>home/event">Events</a></li>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+<li><a href="<?php echo base_url()?>home/news_post">News</a></li>
 </div>
 <div class="entry-content">
 </article>
 </div>
+
 <div class="col3">
 <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">USKT Facilities</h4>
 <article class="post clearfix">
@@ -451,7 +414,7 @@ h1 {
     </article>
   </div>
   <div class="col3">
-    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
+    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Faculities</h4>
 <?php $detail = $this->db->get('faculty')->result_array();
 foreach($detail as $det)
 {
@@ -488,6 +451,4 @@ foreach($detail as $det)
       </div><div style="display: none; width: 1349px; height: 90px; float: none;"></div>
     </div>
   </header>
-  <?php
-                          }
-                          ?>
+ 

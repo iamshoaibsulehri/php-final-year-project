@@ -41,20 +41,17 @@
 <div id="wrapper" class="clearfix">
 <div id="preloader" style="display: none;">
     <div id="spinner">
-      <img alt="" src="images/preloaders/5.gif">
+      <img alt="" src="">
     </div>
-    <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
+    <div id="disable-preloader" class="btn btn-default btn-sm">s</div>
 </div>
 
 <?php
- if(isset($page_assets) == "home-index"){
-include('page/header.php');
- }
- else
- {
-    include('page/header1.php');   
- }
+ 
+    include('page/user_header.php');
+
 ?>
+
 <div class="main-content">
 <?php
   include($page_name.".php");

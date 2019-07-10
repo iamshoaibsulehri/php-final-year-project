@@ -76,7 +76,7 @@ $(document).ready(function(){
   <div class="tab-pane fade in active" id="tab1">
     <div class="result1"></div>
     <?php
-    
+      $login = $this->session->userdata('loggin');
   $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
    $id=$detail[0]['student_id'];
     $this->db->where('student_id', $id);

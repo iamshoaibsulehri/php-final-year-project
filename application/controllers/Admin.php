@@ -1555,7 +1555,7 @@ $pdata['p_fee'] =$datac;
            if($_FILES['file'])
             {
             $config['upload_path']          = './uploads/timetable/';
-            $config['allowed_types']        = 'xls|csv|word|PNG|JPEG|jpeg|JPG';
+            $config['allowed_types']        = 'gif|jpg|png|xls|csv';
             $config['max_size']             = 10000000;
             $this->load->library('upload', $config);
             $this->upload->initialize($config);
@@ -1598,6 +1598,279 @@ $pdata['p_fee'] =$datac;
       }
 
   }
+
+  public function list_uploads()
+  {
+      $login = $this->session->userdata('admin_loggin');
+      if( !$login ){
+          redirect(base_url().'admin/');
+      }
+      
+      $data['page_name'] = "uploads_form/all_file";;
+      $data['page_title'] = "All Uploads";
+      $data['list_uploads'] = $this->db->get('uploads')->result_array();
+
+      $this->load->view('admin/layout', $data);
+  }
+
+  public function add_file()
+   {
+       $login = $this->session->userdata('admin_loggin');
+       if( !$login ){
+           redirect(base_url().'admin/');
+       }
+       
+       
+       $data['page_name'] = "uploads_form/add_file";;
+       $data['page_title'] = "All Uploads";
+      
+       if($_POST)
+       {
+       
+
+        $pdata['date'] = date('Y-m-d H:i:s');
+        //    for prspectus
+           if($_FILES)
+           {
+           $config['upload_path']          = './uploads/d_files/';
+           $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+           $config['max_size']             = 10000000;
+           $this->load->library('upload', $config);
+           $this->upload->initialize($config);
+           if ( ! $this->upload->do_upload('prospectus'))
+           {
+               $error = array('error' => $this->upload->display_errors());
+           
+                  }
+           else
+           {
+              $photo = array('upload_data' => $this->upload->data());
+          
+              $pdata['up_prospect']= $photo['upload_data']['file_name'];
+                  }
+
+           }
+          
+            //    for faculty application
+           if($_FILES)
+           {
+           $config['upload_path']          = './uploads/d_files/';
+           $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+           $config['max_size']             = 10000000;
+           $this->load->library('upload', $config);
+           $this->upload->initialize($config);
+           if ( ! $this->upload->do_upload('faculty'))
+           {
+               $error = array('error' => $this->upload->display_errors());
+             
+                  }
+           else
+           {
+              $photo = array('upload_data' => $this->upload->data());
+          
+              $pdata['up_fac_app']= $photo['upload_data']['file_name'];
+                  }
+
+           }
+          
+              //    for Admin Form
+              if($_FILES)
+              {
+              $config['upload_path']          = './uploads/d_files/';
+              $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+              $config['max_size']             = 10000000;
+              $this->load->library('upload', $config);
+              $this->upload->initialize($config);
+              if ( ! $this->upload->do_upload('administration'))
+              {
+                  $error = array('error' => $this->upload->display_errors());
+                
+                     }
+              else
+              {
+                 $photo = array('upload_data' => $this->upload->data());
+             
+                 $pdata['up_admin_form']= $photo['upload_data']['file_name'];
+                     }
+   
+              }
+
+               //    for Applcation Form
+               if($_FILES)
+               {
+               $config['upload_path']          = './uploads/d_files/';
+               $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+               $config['max_size']             = 10000000;
+               $this->load->library('upload', $config);
+               $this->upload->initialize($config);
+               if ( ! $this->upload->do_upload('a_form'))
+               {
+                   $error = array('error' => $this->upload->display_errors());
+                 
+                      }
+               else
+               {
+                  $photo = array('upload_data' => $this->upload->data());
+              
+                  $pdata['up_app_form']= $photo['upload_data']['file_name'];
+                 
+                      }
+                      
+               }
+ 
+               
+
+           $this->db->insert('uploads', $pdata);
+           $this->session->set_flashdata('message_name', ' successfully added.');
+           redirect(base_url()."admin/list_uploads" .$id);
+       }
+           $this->load->view('admin/layout', $data);
+           
+           
+}
+
+ public function update_file()
+ {
+  $login = $this->session->userdata('admin_loggin');
+  if( !$login ){
+      redirect(base_url().'admin/');
+  }
+  
+  $data['page_name'] = "uploads_form/update_file";;
+  $data['page_title'] = "Edit Uploads";
+
+ 
+ 
+  if($_POST)
+  
+       {
+        
+        $pdata['date'] = date('Y-m-d H:i:s');
+         
+        //    for prspectus
+        if($_FILES['prospectus'])
+        {
+        $config['upload_path']          = './uploads/d_files/';
+        $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+        $config['max_size']             = 10000000;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('prospectus'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+        
+               }
+        else
+        {
+           $photo = array('upload_data' => $this->upload->data());
+       
+           $pdata['up_prospect']= $photo['upload_data']['file_name'];
+               }
+
+        }
+    
+
+        //    for Faculty Form
+        if($_FILES['faculty'])
+        {
+        $config['upload_path']          = './uploads/d_files/';
+        $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+        $config['max_size']             = 10000000;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('prospectus'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+        
+               }
+        else
+        {
+           $photo = array('upload_data' => $this->upload->data());
+       
+           $pdata['up_prospect']= $photo['upload_data']['file_name'];
+               }
+
+        }
+       
+
+           //    for Administration Form
+           if($_FILES['administration'])
+           {
+           $config['upload_path']          = './uploads/d_files/';
+           $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+           $config['max_size']             = 10000000;
+           $this->load->library('upload', $config);
+           $this->upload->initialize($config);
+           if ( ! $this->upload->do_upload('prospectus'))
+           {
+               $error = array('error' => $this->upload->display_errors());
+           
+                  }
+           else
+           {
+              $photo = array('upload_data' => $this->upload->data());
+          
+              $pdata['up_prospect']= $photo['upload_data']['file_name'];
+                  }
+   
+           }
+    
+           
+              //    for admission form
+        if($_FILES['a_form'])
+        {
+        $config['upload_path']          = './uploads/d_files/';
+        $config['allowed_types']        = 'gif|jpg|png|xls|csv';
+        $config['max_size']             = 10000000;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if ( ! $this->upload->do_upload('prospectus'))
+        {
+            $error = array('error' => $this->upload->display_errors());
+        
+               }
+        else
+        {
+           $photo = array('upload_data' => $this->upload->data());
+       
+           $pdata['up_prospect']= $photo['upload_data']['file_name'];
+               }
+
+        }
+    
+
+
+           $id = $this->uri->segment(3);
+           $this->db->where('upload_id', $id);
+           $this->db->update('uploads', $pdata);
+           $this->session->set_flashdata('message_name', ' successfully Updated.');
+           redirect(base_url()."admin/list_uploads");
+       }
+ 
+  
+ 
+ $this->load->view('admin/layout', $data);
+}
+
+ public function delete_file()
+ {
+  $login = $this->session->userdata('admin_loggin');
+  if( !$login ){
+      redirect(base_url().'admin/');
+  }
+  
+  $id = $this->uri->segment(3);
+     if($id)
+     {
+         $this->db->where('upload_id', $id);
+         $this->db->delete('uploads');
+         $this->session->set_flashdata('message_name', 'Item successfully Deleted.');
+         redirect(base_url()."admin/list_uploads");
+     }
+
+ }
+
+
 
    public function pages()
    {

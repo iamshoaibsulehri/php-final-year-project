@@ -378,7 +378,7 @@ $this->load->view('front/layout', $data);
       
         
             $data['detail'] = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
-            $this->load->view('front/layout', $data);
+            $this->load->view('front/layoutu', $data);
              
              
           }
@@ -604,6 +604,7 @@ exit;
     
     $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
     $id=$detail[0]['student_id'];
+    $mail = $detail[0]['email'];
    
 
    $columns= $this->db->get_where('registration_form', array('student_id'=>$id))->result_array();
@@ -611,7 +612,7 @@ exit;
   if($columns[0]['status']==""){
    $this->load->library('email');
    $this->email->from('smartprix36@gmail.com', 'Muhammad Shoaib');
- $this->email->to('shoaibrajput294@gmail.com');
+ $this->email->to($mail);
   
  $this->email->subject('USKT Admission Application');
  $this->email->message('Thanks For Applying
@@ -651,7 +652,7 @@ exit;
 }
  
 
-  $this->load->view('front/layout', $data);
+  $this->load->view('front/layoutu', $data);
 }
 
 

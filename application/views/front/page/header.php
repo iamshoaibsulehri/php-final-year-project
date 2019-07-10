@@ -119,7 +119,7 @@ h1 {
         <div class="col-md-2">
           <ul class="list-inline sm-pull-none sm-text-center text-right text-white mb-sm-20 mt-10">
             <li class="m-0 pl-10"> <a href="<?php echo base_url()?>home/user_login" class="text-white ajaxload-popup"><i class="fa fa-user-o mr-5 text-white"></i> Login /</a> </li>
-            <li class="m-0 pl-0 pr-10"> <a href="<?php echo base_url()?>home/user_register" class="text-white ajaxload-popup"><i class="fa fa-edit mr-5"></i>Register</a> </li>
+            <li class="m-0 pl-0 pr-10"> <a href="<?php echo base_url()?>home/user_registration" class="text-white ajaxload-popup"><i class="fa fa-edit mr-5"></i>Register</a> </li>
           </ul>
         </div>
       </div>
@@ -400,6 +400,11 @@ h1 {
 </div>
 <div class="entry-content">
 </article>
+<div class="entry-header">
+<li><a href="<?php echo base_url()?>home/news_post">News</a></li>
+</div>
+<div class="entry-content">
+</article>
 </div>
 <div class="col3">
 <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">USKT Facilities</h4>
@@ -429,7 +434,7 @@ h1 {
     </article>
   </div>
   <div class="col3">
-    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Related Links</h4>
+    <h4 class="megamenu-col-title" style="border-bottom: 1px solid #f7f8f7;">Faculities</h4>
 <?php $detail = $this->db->get('faculty')->result_array();
 foreach($detail as $det)
 {

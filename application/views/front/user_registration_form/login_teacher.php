@@ -1,6 +1,6 @@
 
 <div class="bg" style=" background-image: url(<?php echo base_url()?>templates/front/images/bg/login.jpg);">
-<div class="container login-container" >
+<div class="container login-container" ><br>
 <?php
 $message = $this->session->flashdata('message_name');
 if($message != ""){
@@ -13,7 +13,7 @@ if($message != ""){
 ?>
            
         <form action="" method="POST"  enctype="multipart/form-data">
- <div class="container position-relative p-0 " style="max-width: 570px;" alt="">)
+ <div class="container position-relative p-0 " style="max-width: 570px;" alt="">
     <h3 class="bg-theme-colored2 p-15 pt-10 mt-0 mb-0 text-white">Login Form</h3>
     <div class="section-content bg-white p-30">
       <div class="row">
@@ -43,37 +43,14 @@ if($message != ""){
               </div>
               <div class="col-sm-12">
                 <div class="form-group mt-15 text-center">
-                  <p>Don't have an account? <a href="<?php echo base_url()?>home/user_registration" class="text-theme-colored2 text-underline">Sign up Here</a> </p>
+                  <p>If you don't have an account?   <a href="<?php echo base_url()?>home/contact" class="text-theme-colored2 text-underline"> Contact Admin</a> </p>
                 </div>
               </div>
             </div>
           </form>
 
           <!-- Appointment Form Validation-->
-          <script type="text/javascript">
-            $("#popup_appointment_form").validate({
-              submitHandler: function(form) {
-                var form_btn = $(form).find('button[type="submit"]');
-                var form_result_div = '#form-result';
-                $(form_result_div).remove();
-                form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                var form_btn_old_msg = form_btn.html();
-                form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                $(form).ajaxSubmit({
-                  dataType:  'json',
-                  success: function(data) {
-                    if( data.status == 'true' ) {
-                      $(form).find('.form-control').val('');
-                    }
-                    form_btn.prop('disabled', false).html(form_btn_old_msg);
-                    $(form_result_div).html(data.message).fadeIn('slow');
-                    setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                  }
-                });
-              }
-            });
-            THEMEMASCOT.initialize.TM_datePicker();
-          </script>
+     
         </div>
       </div>
     </div>
