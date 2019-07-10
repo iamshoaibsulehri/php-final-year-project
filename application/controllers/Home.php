@@ -651,7 +651,7 @@ exit;
 }
  
 
-  $this->load->view('front/layoutu', $data);
+  $this->load->view('front/layout', $data);
 }
 
 

@@ -2007,6 +2007,7 @@ public function new_user_registrations()
     $this->load->view('admin/layout', $data);
 }
 
+
 public function user_detail()
 {
     $login = $this->session->userdata('admin_loggin');
@@ -2038,5 +2039,22 @@ public function registered_detail()
         $data['register_detail'] = $this->db->get_where('event_register' ,array('register_id'=>$id))->result_array();
         $this->load->view('admin/layout', $data);  
 }
+
+
+public function registration_forms_submited()
+{
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+    $data['page_name'] = "registrations/registration_forms_submited";
+    $data['page_title'] = "All Forms";
+    
+   
+    $this->load->view('admin/layout', $data);
+}
+
+
 
 }
