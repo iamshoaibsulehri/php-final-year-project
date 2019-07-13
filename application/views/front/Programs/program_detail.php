@@ -65,7 +65,7 @@
               <div class = "course_img">
                 <img src="<?php echo base_url()?>uploads/program/<?php echo $data['p_photo']?>" alt="">
              </div>
-              <h3 class="text-uppercase mt-30 mb-10"><?php echo $data['p_name']?></h3>
+              <h3 class="text-uppercase mt-30 mb-10" style="text-align:center;"><?php echo $data['p_name']?></h3>
               <div class="double-line-bottom-theme-colored-2 mt-10"></div>
               <p><?php $limit = $data['p_description'];
                echo  ellipsize($limit,3, 50);

@@ -137,7 +137,7 @@ public function news_post()
         $config = array();
         $config["base_url"] = base_url('home/news_post');
         $config['total_rows'] =  $count;//here we will count all the data from the table
-        $config['per_page'] = 5;//number of data to be shown on single page
+        $config['per_page'] = 6;//number of data to be shown on single page
         $config["uri_segment"] = 3;
         $config['full_tag_open']    = "<ul class='pagination theme-colored pull-right xs-pull-center mb-xs-40'>";
         $config['full_tag_close']   = "</ul>";
@@ -621,12 +621,12 @@ exit;
  $datap['status']= 'submitted';
 
 
-$datastudent['application_status'] = 'submitted';
+
 
 }
  $this->db->where('student_id',$id);
    $this->db->update('registration_form' , $datap);
-
+   $datastudent['application_status'] = 'submitted';
    $this->db->where('student_id',$id);
    $this->db->update('students' , $datastudent);
       echo '<div class="alert alert-success">Record Saved.</div>';
@@ -841,6 +841,14 @@ public function career(){
   $this->load->view('front/layout',$data); 
 }
 
+public function downloads(){
+  $data['page_name'] = 'information/downloads';
+  $data['page_title'] = 'All Downloads';
+ 
+
+  $this->load->view('front/layout',$data); 
+}
+
 // Offices of USKT
 
      public function program_detail(){
@@ -873,7 +881,7 @@ public function career(){
         $config = array();
         $config["base_url"] = base_url('home/teacher');
         $config['total_rows'] =  $count;//here we will count all the data from the table
-        $config['per_page'] = 4;//number of data to be shown on single page
+        $config['per_page'] = 12;//number of data to be shown on single page
         $config["uri_segment"] = 3;
         $config['full_tag_open']    = "<ul class='pagination theme-colored pull-right xs-pull-center mb-xs-40'>";
         $config['full_tag_close']   = "</ul>";
@@ -1112,4 +1120,17 @@ $this->email->send();
 echo '<br />';
 echo $this->email->print_debugger();
 }
+
+
+public function fee_structure()
+  {
+   $data['page_name'] = 'information/fee_structure';
+   $data['page_title'] = ' Fee Structure';
+  
+   
+   $this->load->view('front/layout',$data); 
+  } 
+
+
 }
+

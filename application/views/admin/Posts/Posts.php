@@ -10,7 +10,7 @@
                     <tr>
                       <th>No:</th>
                       <th>Title</th>
-                      <th>Description</th>
+                    
                       <th>Author</th>
                       <th>Category</th>
                       <th>Tags</th>
@@ -26,7 +26,7 @@
                     <tr>
                       <td><?php echo $i++; ?></td>
                       <td><?php echo $post['post_title']?></td>
-                      <td><?php echo $post['post_description']?></td>
+                    
                       <td> <?php echo $post['post_author']?></td>
                       <td><?php $category= $this->db->get_where('category',array('cat_id'=>$post['post_category']))->result_array();
                       foreach($category as $cat)

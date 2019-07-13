@@ -14,7 +14,7 @@
       </div>
       <div class="form-group">
         <label class="" for="author">Location</label>
-        <input type="text" name="Location" class="form-control" value="<?php echo $id['location']?>" id="location"/>
+        <input type="text" name="location" class="form-control" value="<?php echo $id['location']?>" id="location"/>
       </div>
       <div class="form-group">
         <label class="" for="Tags">Tags</label>

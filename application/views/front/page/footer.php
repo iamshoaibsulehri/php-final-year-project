@@ -45,7 +45,10 @@
                 <a class="post-thumb" href="#"><img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" style="height:55px; <width:80></width:80>px" alt=""></a>
                 <div class="post-right">
                   <h5 class="post-title mt-0 mb-5"><a href="#"><?php $limit = $post['post_description']; echo word_limiter($limit, 4);?></a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                  <p class="post-date mb-0 font-12">  <?php
+                  $date = new DateTime($post['posted_at']);
+                  echo $date->format('h:i a');
+                  ?></p>
                 </div>
               </article>
               <?php
@@ -81,21 +84,21 @@
       <div class="container pt-20 pb-20">
         <div class="row">
           <div class="col-md-6">
-            <p class="font-12 text-black-777 m-0 sm-text-center">Copyright ©2017 ThemeMascot. All Rights Reserved</p>
+            <p class="font-12 text-black-777 m-0 sm-text-center">Copyright by Syed Qasim, Ahsan Ul Haq and Muhammad Shoaib</p>
           </div>
           <div class="col-md-6 text-right">
             <div class="widget no-border m-0">
               <ul class="list-inline sm-text-center mt-5 font-12">
                 <li>
-                  <a href="#">FAQ</a>
+                  <a href="<?php echo base_url()?>home/faqs">FAQ</a>
                 </li>
                 <li>|</li>
                 <li>
-                  <a href="#">Help Desk</a>
+                  <a href="<?php echo base_url()?>home/contact_us">Help Desk</a>
                 </li>
                 <li>|</li>
                 <li>
-                  <a href="#">Support</a>
+                  <a href="<?php echo base_url()?>home/about_us">About Us</a>
                 </li>
               </ul>
             </div>

@@ -53,7 +53,7 @@
             <div class="latest-posts">
             
             <?php 
-            $this->db->limit(3);
+            $this->db->limit(4);
             $posts = $this->db->get('posts')->result_array();
             foreach($posts as $post)
             {
@@ -63,14 +63,19 @@
                 <a class="post-thumb" href="#"><img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" style="height:55px; <width:80></width:80>px" alt=""></a>
                 <div class="post-right">
                   <h5 class="post-title mt-0 mb-5"><a href="#"><?php $limit = $post['post_description']; echo word_limiter($limit, 10);?></a></h5>
-                  <p class="post-date mb-0 font-12">Mar 08, 2015</p>
+                  <p class="post-date mb-0 font-12">
+                  <?php
+                  $date = new DateTime($post['posted_at']);
+                  echo $date->format('h:i a');
+                  ?>
+                  </p>
                 </div>
               </article>
             
               <?php
             }
               ?>
-              <a href="<?php echo base_url()?>home/about_us" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-15">Show All</a>
+              <a href="<?php echo base_url()?>home/news_post" class="read-more font-roboto-slab text-theme-colored2">Read All</a>
             </div>
          
           </div>
@@ -83,7 +88,7 @@
 
 .</p>
               <p class="hidden-md">Our Vision is nothing less than realizing the full potential of the students of the area by providing them unprecedented access to research, education and modern technology, so that they can lead Pakistan to a new era of development, growth and productivity.</p>
-              <a href="<?php echo base_url()?>home/about_us" class="btn btn-colored btn-theme-colored2 text-white btn-lg pl-40 pr-40 mt-15">Read More</a>
+              <a href="<?php echo base_url()?>home/about_us" class="read-more font-roboto-slab text-theme-colored2">Read All</a>
             </div>
             <div class="col-md-3">
               <div class="top-course-thumb mt-sm-30">
@@ -392,7 +397,7 @@ To create an online application account with the USKT Online Application System,
           <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="team-members border-bottom-theme-colored2px text-center maxwidth400 mb-30">
               <div class="team-thumb">
-            <a href="<?php echo base_url() ?>home/teacher_detail/<?php echo $teach['t_id'] ?>"> <img class="img-fullwidth" alt="" src="<?php echo base_url() ?>uploads/teacher/<?php echo $teach['t_photo'] ?>"></a>
+            <a href="<?php echo base_url() ?>home/teacher_detail/<?php echo $teach['t_id'] ?>"> <img class="img-fullwidth"  style="width: 275; height:370;" alt="" src="<?php echo base_url() ?>uploads/teacher/<?php echo $teach['t_photo'] ?>"></a>
                 <div class="team-overlay"></div>
                 <ul class="styled-icons team-social icon-sm">
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>
@@ -479,7 +484,7 @@ To create an online application account with the USKT Online Application System,
                   <article class="post clearfix mb-30">
                     <div class="entry-header">
                       <div class="post-thumb thumb"> 
-                        <img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" alt="" class="img-responsive img-fullwidth"> 
+                        <img src="<?php echo base_url()?>uploads/posts/<?php echo $post['post_photo']?>" alt="" style="width:372px; height:246px;" class="img-responsive img-fullwidth"> 
                       </div>                    
                       <div class="entry-date media-left text-center flip bg-theme-colored border-top-theme-colored2-3px pt-5 pr-15 pb-5 pl-15">
                         <ul>

@@ -12,7 +12,7 @@ foreach($tf_id as $detail)
         <?php $category= $this->db->get('course_category')->result_array();
         foreach($category as $cat)
         { ?>
-        <option value="<?php echo $detail['c_id'] ?>" <?php if($cat['c_id'] == $detail['program_category']){ echo "selected"; } ?>> <?php echo $cat['c_name'] ?></option>
+        <option value="<?php echo $detail['program_category'] ?>" <?php if($detail['program_category']== $cat['c_id']){ echo "selected"; } ?>> <?php echo $cat['c_name'] ?></option>
 <?php
       }
      ?>

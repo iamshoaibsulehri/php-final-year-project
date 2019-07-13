@@ -50,21 +50,20 @@
               </li>
               <li>
                 <h5>Website:</h5>
-                <p>www.uskt.edu.pk</p>
+                <p><a href="<?php echo base_url()?>home">www.uskt.edu.pk</p></a>
               </li>
               <li>
-                <h5>Share:</h5>
+                <h5>Social Links:</h5>
                 <div class="styled-icons icon-sm icon-gray icon-circled">
-                  <a href="#"><i class="fa fa-facebook"></i></a>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                  <a href="#"><i class="fa fa-instagram"></i></a>
-                  <a href="#"><i class="fa fa-google-plus"></i></a>
+                <div class="sharethis-inline-share-buttons"></div>
+						
+               
                 </div>
               </li>
             </ul>
           </div>
           <div class="col-md-8">
-            <img src="<?php echo base_url() ?>uploads/events/<?php echo $detail['event_photo'] ?>" alt="">
+            <img src="<?php echo base_url() ?>uploads/events/<?php echo $detail['event_photo'] ?>" style="width:755px; height:480px;" alt="">
           </div>
         </div>
         <div class="row mt-60">
@@ -123,31 +122,11 @@
               </div>
             </form>
             <!-- Job Form Validation-->
-            <script type="text/javascript">
-              $("#booking-form").validate({
-                submitHandler: function(form) {
-                  var form_btn = $(form).find('button[type="submit"]');
-                  var form_result_div = '#form-result';
-                  $(form_result_div).remove();
-                  form_btn.before('<div id="form-result" class="alert alert-success" role="alert" style="display: none;"></div>');
-                  var form_btn_old_msg = form_btn.html();
-                  form_btn.html(form_btn.prop('disabled', true).data("loading-text"));
-                  $(form).ajaxSubmit({
-                    dataType:  'json',
-                    success: function(data) {
-                      if( data.status == 'true' ) {
-                        $(form).find('.form-control').val('');
-                      }
-                      form_btn.prop('disabled', false).html(form_btn_old_msg);
-                      $(form_result_div).html(data.message).fadeIn('slow');
-                      setTimeout(function(){ $(form_result_div).fadeOut('slow') }, 6000);
-                    }
-                  });
-                }
-              });
-            </script>
+        
           </div>
         </div>
       </div>
     </section>
   </div>
+
+  <script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5d27216407f9ac0012ebd73d&product='inline-share-buttons' async='async'></script>

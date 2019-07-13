@@ -72,12 +72,14 @@
              
              ?>
          <div class="<?php echo  $box_class;?>">
+          <a href="<?php echo base_url()?>home/department/<?php echo $dep['d_id']?>">
            <div class="dep_box top-course-thumb mt-sm-30" style="margin:0px !important">
                 <img class="img-fullwidth" src="<?php echo base_url()?>uploads/department/<?php echo $dep['d_photo']?>" alt="">
                 <div class="desc-box" style="margin: 0px  0px 0px -25px !important">
                 <i class="fa fa-desktop" style="color:#ffffff; font-size:22px; line-height:22px; vertical-align: middle;     margin-right: 488px;"></i>
                 
                   <h4 class="name"><?php echo $dep['d_name']?></h4>
+                  </a>
                 </div>
            </div>
            <br>

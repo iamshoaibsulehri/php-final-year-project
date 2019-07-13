@@ -113,8 +113,8 @@ h1 {
           <div class="col-md-4 pr-0">
             <div class="widget">
             <ul class="menuzord-menu2  top styled-icons icon-sm pull-right flip sm-pull-none sm-text-center effect mt-5">
-               <li><a href="<?php echo base_url()?>home/under_construction" class="text-white">Downloads</a></li>
-                <li><a href="<?php echo base_url()?>home/user_registration" class="text-white">Admission</a></li>
+               <li><a href="<?php echo base_url()?>home/downloads" class="text-white">Downloads</a></li>
+                <li><a href="<?php echo base_url()?>home/admission_office" class="text-white">Admission</a></li>
                 <li><a href="<?php echo base_url()?>home/under_construction" class="text-white">Career</a></li>
                 <li><a href="<?php echo base_url()?>home/teacher" class="text-white">Faculty</a></li>
               </ul>
@@ -381,6 +381,12 @@ h1 {
 <article class="post clearfix">
 <div class="entry-header">
 <li><a href="<?php echo base_url()?>home/news_post">News</a></li>
+</div>
+<div class="entry-content">
+</article>
+<article class="post clearfix">
+<div class="entry-header">
+<li><a href="<?php echo base_url()?>home/gallery">Gallery</a></li>
 </div>
 <div class="entry-content">
 </article>

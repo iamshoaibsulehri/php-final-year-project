@@ -63,8 +63,8 @@ public function admin_login()
         $query = $this->db->get();
         $result = $query->result_array();
         if($query->num_rows()==1){
-            $sdata = array(
-                
+            $sdata = array(  
+            
                 'username'=>$result[0]['username'],
                 'email' =>$result[0]['email']
             );
@@ -129,8 +129,7 @@ public function logout(){
             if ( ! $this->upload->do_upload('photo'))
             {
                 $error = array('error' => $this->upload->display_errors());
-                   print_r($error);
-                   die();
+                  
                    }
             else
             {
@@ -296,8 +295,6 @@ public function logout(){
             if ( ! $this->upload->do_upload('photo'))
             {
                 $error = array('error' => $this->upload->display_errors());
-                   print_r($error);
-                   die();
                    }
             else
             {
@@ -579,6 +576,7 @@ public function logout(){
   {
       
         $login = $this->session->userdata('admin_loggin');
+        
         if( !$login ){
             redirect(base_url().'admin/');
         }
@@ -998,7 +996,7 @@ public function logout(){
           $pdata['t_address'] =$this->input->post('address');
           $pdata['t_contact'] =$this->input->post('contact');
           $pdata['t_address'] =$this->input->post('contact'); 
-          $pdata['t_mail'] =$this->input->post('mail'); 
+          $pdata['email'] =$this->input->post('mail'); 
           $pdata['t_research'] =$this->input->post('research'); 
           $pdata['password'] =$this->input->post('password'); 
           
@@ -1028,7 +1026,7 @@ public function logout(){
 
           $this->db->insert('teacher', $pdata);
          
-          $this->session->set_flashdata('message_name', 'department added Succesully.');
+          $this->session->set_flashdata('message_name', 'Teacher added Succesully.');
           redirect(base_url(). "admin/teachers");
           
        }
@@ -1547,7 +1545,7 @@ $pdata['p_fee'] =$datac;
 
    if($_POST)
         {
-            $pdata['tf-program'] = $this->input->post('program');
+            $pdata['tf_program'] = $this->input->post('program');
             $pdata['program_category'] = $this->input->post('category');
             $pdata['tf_fee'] = $this->input->post('fee');
             $pdata['tf_credit'] = $this->input->post('credit');

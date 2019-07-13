@@ -27,14 +27,22 @@
 
               <li>
                 <h5>Website:</h5>
-                <p><a href="<?php echo base_url()?>home">Uskt.edu.pk</p></a>
+                <p><a href="<?php echo base_url()?>home">www.uskt.edu.pk</p></a>
+              </li>
+              <li>
+                <h5>Social Links:</h5>
+                <div class="styled-icons icon-sm icon-gray icon-circled">
+                <div class="sharethis-inline-share-buttons"></div>
+						
+               
+                </div>
               </li>
              
             </ul>
           </div>
           <div class="col-md-8">
             <div class="owl-carousel-1col owl-carousel owl-theme owl-loaded owl-drag" data-nav="true">
-            <img src="<?php echo base_url()?>uploads/posts/<?php echo $detail['post_photo']?>" allowfullscreen="" id="fitvid1">
+            <img src="<?php echo base_url()?>uploads/posts/<?php echo $detail['post_photo']?>" style="width:755px; height:480px;" allowfullscreen="" id="fitvid1">
             
            </div>
         </div>
@@ -52,3 +60,6 @@
     <?php
             }
             ?>
+
+
+<script type='text/javascript' src='https://platform-api.sharethis.com/js/sharethis.js#property=5d27216407f9ac0012ebd73d&product='inline-share-buttons' async='async'></script>

@@ -84,17 +84,7 @@
 										</div>
 									</div>
 								</li>
-								<li>
-									<div class="bg-light media border-bottom p-15">
-										<div class="media-left">
-											<i class="fa fa-download text-theme-colored2 font-24 mt-5"></i>
-										</div>
-										<div class="media-body">
-											<h5 class="mt-0 mb-0">Resume Download:</h5>
-											<a href="#" class="text-underline"><i class="fa fa-file-pdf-o mr-5"></i>Download PDF</a>
-										</div>
-									</div>
-								</li>
+							
 							</ul>
 						</div>
 					</div>

@@ -56,11 +56,13 @@
        <?php 
         $id = $this->uri->segment(3);
            $this->db->where('p_category',2);
+           
               $this->db->where('p_department',$id);
              $ucourse  = $this->db->get('program')->result_array();
              foreach($ucourse as $uc)
              {
              ?>
+
          <div class="col-md-6">
            <div class="box top-course-thumb mt-sm-30">
            <a href="<?php echo base_url()?>home/program_detail/<?php echo $uc['p_id']?>">
@@ -96,13 +98,27 @@
        <div class ="row">
        <?php 
         $id = $this->uri->segment(3);
+        
            $this->db->where('p_category',1);
               $this->db->where('p_department',$id);
              $ucourse  = $this->db->get('program')->result_array();
+            if($ucourse == NULL)
+             {
+               ?>
+               <div class="notification" style="text-align:center">
+               <h3 style="text-align:center; color:dark; font-weight:bold">More Comming Soon</h3>
+               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+<br><br><br>
+               </div>
+               <?php 
+               }else{
+                 ?>
+             <?php
              foreach($ucourse as $uc)
            
              {
              ?>
+           
          <div class="col-md-6">
            <div class="box top-course-thumb mt-sm-30">
                 <a href="<?php echo base_url()?>home/program_detail/<?php echo $uc['p_id']?>">
@@ -116,8 +132,10 @@
            </div>
            <br>
          </div>
+
         <?php
              }
+            }
              ?>
 
        </div>

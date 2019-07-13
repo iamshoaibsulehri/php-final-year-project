@@ -25,16 +25,16 @@
                     </div>
                   </div>
                   <div class="event-list-details border-1px bg-white clearfix p-20 pt-15 pb-30">
-                    <h4 class="text-uppercase font-weight-600 mb-5"><a href="<?php echo base_url()?>home//news_post/<?php echo $post['post_id']?>"><?php echo $post['post_title']?></a></h4>
+                    <h4 class="text-uppercase font-weight-600 mb-5"><a href="<?php echo base_url()?>home/news_post_detail/<?php echo $post['post_id']?>"><?php echo $post['post_title']?></a></h4>
                     <ul class="list-inline">
                       <li><i class="fa fa-clock-o text-theme-colored2"></i> 
                       <?php
                       $date = new DateTime($post['posted_at']);echo $date->format('h:i a');
                       ?>
                       </li>
-                      <li> <i class="fa fa-map-marker text-theme-colored2"></i> 25 Newyork City.</li>
+                      <li> <i class="fa fa-map-marker text-theme-colored2"></i> <?php echo $post['location']?></li>
                     </ul>
-                    <p class="mt-15"><?php $limit = $post['post_description']; echo word_limiter($limit, 5);?></p> <a href="#" class="btn btn-default mt-5">View </a>
+                    <p class="mt-15"><?php $limit = $post['post_description']; echo word_limiter($limit, 5);?></p> <a href="<?php echo base_url()?>home/news_post_detail/<?php echo $post['post_id']?>" class="btn btn-default mt-5">View </a>
                   </div>
                 </div>
               </div>

@@ -89,7 +89,7 @@
            <div class="col-xs-12 col-sm-6 col-md-3">
             <div class="team-members border-bottom-theme-colored2px text-center maxwidth400 mb-30">
               <div class="team-thumb">
-              <a href="<?php echo base_url() ?>home/teacher_detail/<?php echo $teach['t_id'] ?>"><img class="img-fullwidth" alt="" src="<?php echo base_url() ?>uploads/teacher/<?php echo $teach['t_photo'] ?>"></a>
+              <a href="<?php echo base_url() ?>home/teacher_detail/<?php echo $teach['t_id'] ?>"><img class="img-fullwidth"  style="width:260px !important; height:336px;" alt="" src="<?php echo base_url() ?>uploads/teacher/<?php echo $teach['t_photo'] ?>"></a>
                 <div class="team-overlay"></div>
                 <ul class="styled-icons team-social icon-sm">
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>

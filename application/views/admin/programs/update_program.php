@@ -14,7 +14,7 @@
         <?php $departments= $this->db->get('department')->result_array();
         foreach($departments as $department)
         { ?>
-        <option value="<?php echo $department['d_id'] ?>"> <?php echo $department['d_name'] ?></option>
+        <option value="<?php echo $department['d_id'] ?>" <?php if($id['p_department'] == $department['d_id']){ echo "selected"; } ?>> <?php echo $department['d_name'] ?></option>
 <?php
       }
      ?>
@@ -27,7 +27,7 @@
         <?php $category= $this->db->get('course_category')->result_array();
         foreach($category as $cat)
         { ?>
-        <option value="<?php echo $cat['c_id'] ?>"> <?php echo $cat['c_name'] ?></option>
+        <option value="<?php echo $cat['c_id'] ?>" <?php if($id['p_category'] == $cat['c_id']){ echo "selected"; } ?>> <?php echo $cat['c_name'] ?></option>
 <?php
       }
      ?>

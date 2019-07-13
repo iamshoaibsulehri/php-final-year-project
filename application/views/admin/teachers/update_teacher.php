@@ -39,7 +39,7 @@ foreach($t_id as $id)
       <p><strong>Login Information</strong></p>
     <div class = "form-group">
     <label class="" for="mail">Mail Address</label>
-    <input type="text" name = "mail" <?php echo $id['email']?> class = "form-control" id="mail" />
+    <input type="text" name = "mail" value="<?php echo $id['email']?>" class = "form-control" id="mail" />
     </div>
     <div class = "form-group">
     <label class="" for="password">Password</label>

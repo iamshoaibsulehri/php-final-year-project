@@ -1,5 +1,5 @@
 <div class="container">
-<a href="<?php echo base_url() ?>admin/add_department" style="float:right" class="btn btn-primary">Add New</button></a>
+<a href="<?php echo base_url() ?>admin/add_fee_time" style="float:right" class="btn btn-primary">Add New</button></a>
 <br>
 <hr>
 <div class="row">
@@ -42,7 +42,7 @@
                        </td>
                       <td><img src="<?php echo base_url() ?>uploads/timetable/<?php echo $list['tf_time']; ?>" width="100" alt=""/></td>
                       <td style="text-align: right">
-                      <a style="padding: 0 5px;" href="<?php echo  base_url() ?>admin/add_fee_time/<?php echo $list['tf_id']; ?>"><i class="fa fa-edit"></i></a>
+                      <a style="padding: 0 5px;" href="<?php echo  base_url() ?>admin/update_fee_time/<?php echo $list['tf_id']; ?>"><i class="fa fa-edit"></i></a>
                       <a class="t_trash" href="<?php echo base_url() ?>admin/delete_fee_time/<?php echo $list['tf_id']; ?>"><i class="fa fa-trash"></i></a>
                       </td>
                       
