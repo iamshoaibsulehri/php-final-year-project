@@ -111,7 +111,7 @@ h1 {
             <ul class=" menuzord-menu2 top styled-icons icon-sm pull-right flip sm-pull-none sm-text-center mt-5">
               <li><a href="<?php echo base_url()?>home/downloads" class="text-white">Downloads</a></li>
               <li><a href="<?php echo base_url()?>home/admission_office" class="text-white">Admission</a></li>
-              <li><a href="<?php echo base_url()?>home/under_construction" class="text-white">Career</a></li>
+              <li><a href="<?php echo base_url()?>home/career" class="text-white">Career</a></li>
               <li><a href="<?php echo base_url()?>home/teacher" class="text-white">Faculty</a></li>
             </ul>
           </div>

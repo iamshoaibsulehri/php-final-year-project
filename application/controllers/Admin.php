@@ -2260,7 +2260,7 @@ public function registered_event()
     
     $data['page_name'] = "notification/event_registered";
     $data['page_title'] = "All Registered";
-    $data['notification'] = $this->db->get('notifications')->result_array();
+    $data['notification'] = $this->db->get_where('notifications' , array('not_type'=>'event'))->result_array();
     $this->load->view('admin/layout', $data);
 }
 
@@ -2279,19 +2279,19 @@ public function new_user_registrations()
 }
 
 
-public function user_detail()
+public function notification_detail()
 {
     $login = $this->session->userdata('admin_loggin');
     if( !$login ){
         redirect(base_url().'admin/');
     }
     
-    $data['page_name'] = "registrations/detail_of_user";
+    $data['page_name'] = "registrations/detail";
     $data['page_title'] = "Detail";
     $id = $this->uri->segment(3);
-    $data['students_detail'] = $this->db->get_where('students' ,array('student_id'=>$id))->result_array();
-  
-
+   
+     $this->db->where('not_id',$id);
+     $this->db->update('notifications', array('status'=>1));
    
     $this->load->view('admin/layout', $data);
 }
@@ -2326,6 +2326,91 @@ public function registration_forms_submited()
     $this->load->view('admin/layout', $data);
 }
 
+
+public function important_dates()
+  {
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+   $data['page_name'] = 'important_dates/important_dates';
+   $data['page_title'] = 'All Notification';
+   $data['imp_not'] = $this->db->get('imp_dates')->result_array();
+   
+   $this->load->view('admin/layout', $data);   
+  }
+
+  public function add_imp_dates()
+  {
+
+  $data['page_name'] = 'important_dates/add_imp_dates';
+   $data['page_title'] = 'Add Notification';
+   
+    
+   if($_POST) 
+   {
+     
+       $pdata['title'] = $this->input->post('title');
+       $pdata['notification'] =$this->input->post('notification');
+
+       $this->db->insert('imp_dates', $pdata);
+       
+       
+       $this->session->set_flashdata('message_name', 'Notification added Succesully.');
+       redirect(base_url(). "admin/important_dates");
+       
+    }
+   
+   $this->load->view('admin/layout', $data);
+   
+  }
+  
+  public function update_imp_dates()
+  {
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+   $data['page_name'] = "important_dates/update_imp_dates";
+   $data['page_title'] = "Update Notification";
+   $id= $this->uri->segment(3);
+   $data['imp_id'] = $this->db->get_where('imp_dates', array('im_id'=>$id))->result_array();
+  
+   if($_POST)
+   {
+    $pdata['title'] = $this->input->post('title');
+     $pdata['notification'] =$this->input->post('notification');
+    
+   $this->db->where('im_id', $id);    
+   $this->db->update('imp_dates', $pdata);
+   $this->session->set_flashdata('message_name', 'Notification successfully Updated.');
+   redirect(base_url()."admin/important_dates/" .$id);
+    }
+   $this->load->view('admin/layout', $data);
+  
+ }
+ 
+ public function delete_imp_date()
+ {
+    $login = $this->session->userdata('admin_loggin');
+    if( !$login ){
+        redirect(base_url().'admin/');
+    }
+    
+  $id = $this->uri->segment(3);
+     if($id)
+     {
+         $this->db->where('im_id', $id);
+         $this->db->delete('imp_dates');
+         $this->session->set_flashdata('message_name', 'Notification successfully Deleted.');
+         redirect(base_url()."admin/important_dates");
+     }
+
+ }
+ 
+ 
 
 
 }

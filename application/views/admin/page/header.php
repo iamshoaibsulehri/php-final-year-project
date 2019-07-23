@@ -60,7 +60,7 @@ $adminuser = $this->db->get_where('users', array('email'=>$user_data['email']))-
               $all_noti = $this->db->get_where('notifications')->result_array();
                 foreach($all_noti as $noti){  
                   ?>
-                <a class="dropdown-item d-flex align-items-center" href="#">
+                <a class="dropdown-item d-flex align-items-center" href="<?php echo base_url() ?>admin/user_detail/<?php echo $noti['not_id']; ?>">
                   <div class="mr-3">
                     <div class="icon-circle bg-primary">
                       <i class="fas fa-file-alt text-white"></i>

@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <title>USKT - University Of Sialkot</title>
-    <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <link href="<?php echo base_url()?>templates/front/images/USKT_Logo.png" rel="shortcut icon">
    
     <link href="<?php echo base_url() ?>templates/front/css/bootstrap.min.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() ?>templates/front/css/jquery-ui.min.css" rel="stylesheet" type="text/css">
@@ -21,6 +21,7 @@
     <link href="<?php echo base_url() ?>templates/front/css/lightbox.css" rel="stylesheet" type="text/css">
     <link href="<?php echo base_url() ?>templates/front/css/magnific.css" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome-animation/0.2.1/font-awesome-animation.min.css" integrity="sha256-OksDpsEotGZHyoFCHRsdsld3UaZrCcE2d8jXU8rBjHo=" crossorigin="anonymous" />
     <script src="<?php echo base_url() ?>templates/front/js/jquery-2.2.4.min.js"></script>
     <script src="<?php echo base_url() ?>templates/front/js/bootstrap.min.js"></script>
     
@@ -41,9 +42,9 @@
 <div id="wrapper" class="clearfix">
 <div id="preloader" style="display: none;">
     <div id="spinner">
-      <img alt="" src="images/preloaders/5.gif">
+    
     </div>
-    <div id="disable-preloader" class="btn btn-default btn-sm">Disable Preloader</div>
+    <div class="btn btn-default btn-sm">Disable Preloader</div>
 </div>
 
 <?php

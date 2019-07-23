@@ -24,10 +24,10 @@
             <h4 class="widget-title line-bottom-theme-colored-2">Useful Links</h4>
             <ul class="angle-double-right list-border">
               <li><a href="<?php echo base_url()?>home/index">Home Page</a></li>
-              <li><a href="<?php echo base_url()?>home/index">About Us</a></li>
-              <li><a href="<?php echo base_url()?>home/index">Our Mission</a></li>
-              <li><a href="<?php echo base_url()?>home/index">Terms and Conditions</a></li>
-              <li><a href="<?php echo base_url()?>home/index">FAQ</a></li>              
+              <li><a href="<?php echo base_url()?>home/about_us">About Us</a></li>
+              <li><a href="<?php echo base_url()?>home/about_us">Our Mission</a></li>
+              <li><a href="<?php echo base_url()?>home/admission_policy">Admission Policy</a></li>
+              <li><a href="<?php echo base_url()?>home/faqs">FAQ</a></li>              
             </ul>
           </div>
         </div>

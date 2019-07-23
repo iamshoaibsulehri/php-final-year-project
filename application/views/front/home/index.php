@@ -148,7 +148,7 @@
                     </ul>
                   </div>
                   <div class="author-thumb">
-                    <img src="images/course/xs1.jpg" alt="" class="img-circle">
+                    <img src="" alt="" class="img-circle">
                   </div>
                   <div class="clearfix"></div>
                   <p class="course-description mt-20"><?php echo $program['p_name']?></p>
@@ -525,6 +525,9 @@ To create an online application account with the USKT Online Application System,
       </div>
     </section>
    
+  
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3366.2891870359845!2d74.51207491465577!3d32.46495600713937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ec1fa58d5be41%3A0x4798a62d873730fd!2sUniversity+of+Sialkot(USKT)!5e0!3m2!1sen!2s!4v1563143546373!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+              
     <section class="clients bg-theme-colored2">
       <div class="container pt-10 pb-10">
         <div class="row">
@@ -537,3 +540,25 @@ To create an online application account with the USKT Online Application System,
         </div>
       </div>
     </section>
+
+<div id="modeilReload" class="modal fade" role="dialog">
+  <div class="modal-dialog" style="    top: 30%;">
+
+    <!-- Modal content-->
+    <div class="modal-content" style="background: url(<?php echo base_url() ?>templates/front/images/lib-image.jpg);">
+    
+      <div class="modal-body">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h3 class="text-center" style="color: #fff;font-weight: bold;  font-size: 25px;">ADMISSIONS FALL 2019
+</h3>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+    
+
+<script>
+$('#modeilReload').modal('show');
+</script>

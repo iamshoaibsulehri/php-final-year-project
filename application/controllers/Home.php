@@ -106,10 +106,15 @@ public function event()
   $rdata['reg_email'] = $this->input->post('register_email');
   $rdata['reg_phone'] = $this->input->post('register_phone');
   $rdata['event_id'] = $id;
-  $ndata['not_type'] = 'event';
-  $ndata['type_id'] = $id;
+  
+ 
   
   $this->db->insert('event_register',$rdata);
+
+  $ndata['not_type'] = 'event';
+  $ndata['a_name'] = $this->input->post('register_name');
+$id2 = $this->db->insert_id();
+$ndata['type_id'] = $id2;
   $this->db->insert('notifications',$ndata);
 
 }
@@ -179,6 +184,26 @@ public function contact_us(){
   $data['page_name'] = 'information/contact_us';
   $data['page_title'] = 'Contact Us'; 
  
+  if($_POST)
+  {
+  $fdata['con_name'] = $this->input->post('name');
+  $fdata['con_email'] = $this->input->post('email');
+  $fdata['con_sub'] = $this->input->post('subject');
+  $fdata['phone'] = $this->input->post('phone');
+  $fdata['message'] = $this->input->post('form_message');
+ $fdata['date'] = date('Y-m-d H:i:s');
+  
+  $this->db->insert('contact_inquiry',$fdata);
+
+
+  $ndata['not_type'] = 'contact_inquiry';
+  $ndata['a_name'] = $this->input->post('name');
+  $ndata['type_id'] = $this->db->insert_id();
+  $this->db->insert('notifications',$ndata);
+  }
+ 
+
+
   $this->load->view('front/layout',$data);
 }
 
@@ -836,6 +861,52 @@ public function leader(){
 public function career(){
   $data['page_name'] = 'information/career';
   $data['page_title'] = 'Career';
+
+  if($_POST)
+  {
+  $fdata['a_name'] = $this->input->post('name');
+  $fdata['a_email'] = $this->input->post('email');
+  $fdata['a_gender'] = $this->input->post('gender');
+  $fdata['a_post'] = $this->input->post('f_post');
+  $fdata['a_message'] = $this->input->post('form_message');
+ $fdata['date'] = date('Y-m-d H:i:s');
+
+  if($_POST){
+        
+    $config['upload_path']          = './uploads/jobcv/';
+    $config['allowed_types']        = 'pdf|docx|jpeg|JPG|jpg|png';
+    $config['max_size']             = 10000000;
+    $this->load->library('upload', $config);
+    $this->upload->initialize($config);
+  
+    if ( ! $this->upload->do_upload('cv'))
+    {
+        $error = array('error' => $this->upload->display_errors());
+        
+           }
+    else
+    {
+       $file = array('upload_data' => $this->upload->data());
+   
+       $fdata['cv']=   $file['upload_data']['file_name'];
+     
+           }
+           $this->session->set_flashdata('message_name', 'Application Successfully Submitted. Please check your Email');
+           redirect(base_url(). "home/career");
+  
+  }
+
+  
+
+  
+  $this->db->insert('job_form',$fdata);
+
+
+  $ndata['not_type'] = 'job_application';
+  $ndata['a_name'] = $this->input->post('name');
+  $ndata['type_id'] = $this->db->insert_id();
+  $this->db->insert('notifications',$ndata);
+  }
  
 
   $this->load->view('front/layout',$data); 
@@ -844,6 +915,14 @@ public function career(){
 public function downloads(){
   $data['page_name'] = 'information/downloads';
   $data['page_title'] = 'All Downloads';
+ 
+
+  $this->load->view('front/layout',$data); 
+}
+
+public function hostel(){
+  $data['page_name'] = 'information/hostel';
+  $data['page_title'] = 'Hostel';
  
 
   $this->load->view('front/layout',$data); 
@@ -1132,5 +1211,21 @@ public function fee_structure()
   } 
 
 
+
+  public function important_dates()
+  {
+   $data['page_name'] = 'information/important_dates';
+   $data['page_title'] = ' All Details';
+  
+   
+   $this->load->view('front/layout',$data); 
+  } 
+
+
 }
+
+
+
+
+
 

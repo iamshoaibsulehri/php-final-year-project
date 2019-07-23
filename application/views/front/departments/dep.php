@@ -107,7 +107,7 @@
                ?>
                <div class="notification" style="text-align:center">
                <h3 style="text-align:center; color:dark; font-weight:bold">More Comming Soon</h3>
-               <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw"></i>
+               
 <br><br><br>
                </div>
                <?php 
