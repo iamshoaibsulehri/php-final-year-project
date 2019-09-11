@@ -96,6 +96,7 @@ public function event()
    
   $data['page_name'] = 'event/event_detail';
   $data['page_title'] = 'Event Details'; 
+  $data['form_validation'] = "validation";
   if($id){
    $data['event_details']  =  $this->db->get_where('events', array('event_id'=>$id))->result_array();
   }
@@ -116,6 +117,9 @@ public function event()
 $id2 = $this->db->insert_id();
 $ndata['type_id'] = $id2;
   $this->db->insert('notifications',$ndata);
+
+  $this->session->set_flashdata('message_name', 'You have Succesfully registered the event. Please check your Email');
+           redirect(base_url(). "home/event_detail/" .$id);
 
 }
 
@@ -183,7 +187,7 @@ public function news_post()
 public function contact_us(){
   $data['page_name'] = 'information/contact_us';
   $data['page_title'] = 'Contact Us'; 
- 
+  $data['form_validation'] = "validation";
   if($_POST)
   {
   $fdata['con_name'] = $this->input->post('name');
@@ -192,14 +196,17 @@ public function contact_us(){
   $fdata['phone'] = $this->input->post('phone');
   $fdata['message'] = $this->input->post('form_message');
  $fdata['date'] = date('Y-m-d H:i:s');
-  
+   
   $this->db->insert('contact_inquiry',$fdata);
-
 
   $ndata['not_type'] = 'contact_inquiry';
   $ndata['a_name'] = $this->input->post('name');
+
   $ndata['type_id'] = $this->db->insert_id();
   $this->db->insert('notifications',$ndata);
+
+  $this->session->set_flashdata('message_name', 'Your Query Succesfully Submitted. Please check your Email');
+           redirect(base_url(). "home/contact_us");
   }
  
 
@@ -242,6 +249,7 @@ if( $login ){
 }
 $data['page_name'] = 'user_registration_form/login';
 $data['page_title'] = 'Login';
+$data['form_validation'] = "validation";
 if($_POST){
       $email = $this->input->post('email');
       $password= md5($this->input->post('password'));
@@ -285,6 +293,7 @@ $this->load->view('front/layout', $data);
     }
       $data['page_name'] = 'user_registration_form/registration';
       $data['page_title'] = 'Registration';
+      $data['form_validation'] = "validation";
 
       if($_POST){
         $datap['username']= $this->input->post('name');
@@ -326,6 +335,7 @@ $this->load->view('front/layout', $data);
       
         $this->db->insert('students',$datap);
         $datac['name']= $this->input->post('name');
+        $datac['category']= $this->input->post('category');
         $datac['email']= $this->input->post('email');
        $datac['student_id'] = $this->db->insert_id();
         $this->db->insert('registration_form',$datac);
@@ -668,7 +678,13 @@ if($para1 == "fc_to_dep"){
 }
 if($para1 == "dep_to_sp"){
   $fc_id = $_GET['fc_id'];
-$departments =   $this->db->get_where('program',array('p_department'=>$fc_id))->result_array(); 
+  $detail = $this->db->get_where('students', array('email'=>$login['email']))->result_array();
+  $category=$detail[0]['category'];
+
+  
+$departments =   $this->db->get_where('program', array('p_department'=>$fc_id , 'p_category'=>$category))->result_array(); 
+
+print_r($departments);
 echo '<option value="0">-- Select Option --</option>';
 foreach($departments as $dap){
  echo '<option value="'. $dap['p_id'] .'">'. $dap['p_name'] .'</option>';
@@ -861,6 +877,7 @@ public function leader(){
 public function career(){
   $data['page_name'] = 'information/career';
   $data['page_title'] = 'Career';
+  $data['form_validation'] = "validation";
 
   if($_POST)
   {
@@ -1009,6 +1026,7 @@ public function hostel(){
    }
    $data['page_name'] = 'user_registration_form/login_teacher';
    $data['page_title'] = 'Login'; 
+   $data['form_validation'] = "validation";
    if($_POST){
          $email = $this->input->post('email');
          $password= md5($this->input->post('password'));

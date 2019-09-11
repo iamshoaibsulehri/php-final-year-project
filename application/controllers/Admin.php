@@ -60,6 +60,7 @@ public function admin_login()
         $this->db->select('*');
         $this->db->from('users');
         $this->db->where($pdata);
+      
         $query = $this->db->get();
         $result = $query->result_array();
         if($query->num_rows()==1){

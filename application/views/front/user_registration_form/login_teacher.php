@@ -12,26 +12,26 @@ if($message != ""){
 }
 ?>
            
-        <form action="" method="POST"  enctype="multipart/form-data">
+        
  <div class="container position-relative p-0 " style="max-width: 570px;" alt="">
     <h3 class="bg-theme-colored2 p-15 pt-10 mt-0 mb-0 text-white">Login Form</h3>
     <div class="section-content bg-white p-30">
       <div class="row">
         <div class="col-md-12">
           <!-- Register Form Starts -->
-          <form id="reservation_form_popup" name="reservation_form" class="reservation-form mb-0 bg-silver-deep p-30" method="post" action="" novalidate="novalidate">
+          <form id="login_teacher" name="reservation_form" class="reservation-form mb-0 bg-silver-deep p-30"  method="POST"  enctype="multipart/form-data">
             <h3 class="text-center mt-0 mb-30">login to your registered account!</h3>
             <div class="row">
               
               <div class="col-sm-12">
                 <div class="form-group mb-30">
-                  <input placeholder="Enter A Valid Email" id="email" name="email" class="form-control" required="" aria-required="true" type="text">
+                  <input placeholder="Enter A Valid Email" id="email" name="email" class="form-control required" required="" type="text">
                 </div>
               </div>
              
               <div class="col-sm-12">
                 <div class="form-group mb-30">
-                  <input placeholder="Enter Your Password" id="password" name="password" required="" class="form-control" aria-required="true" type="password">
+                  <input placeholder="Enter Your Password" id="password" name="password" class="form-control required"  type="password">
                 </div>
               </div>
              

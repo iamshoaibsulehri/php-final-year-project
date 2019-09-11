@@ -541,6 +541,18 @@ To create an online application account with the USKT Online Application System,
       </div>
     </section>
 
+<style>
+.text-block {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background-color: black;
+  color: white;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+</style>
+
 <div id="modeilReload" class="modal fade" role="dialog">
   <div class="modal-dialog" style="    top: 30%;">
 
@@ -548,12 +560,23 @@ To create an online application account with the USKT Online Application System,
     <div class="modal-content" style="background: url(<?php echo base_url() ?>templates/front/images/lib-image.jpg);">
     
       <div class="modal-body">
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h3 class="text-center" style="color: #fff;font-weight: bold;  font-size: 25px;">ADMISSIONS FALL 2019
+      <h3 class="text-center" style="color: #fff;font-weight: bold; border:8px solid white; background:black; padding:10px; font-size: 25px;">ADMISSIONS FALL 2019
 </h3>
+
+<div class="body">
+<div class="container">
+<div class="col-md-6">
+<h3>Apply online</h3>
+</div>
+</div>
+
+</div>
+
+
       </div>
-      
-    </div>
+     
 
   </div>
 </div>

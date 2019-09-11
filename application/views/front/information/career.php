@@ -111,9 +111,10 @@ if($message != ""){
               </div>
               <div class="row">               
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <label>Gender <small>*</small></label>
-                    <select name="gender" class="form-control required" aria-required="true">
+                  <div class="form-group required">
+                    <label required="" >Gender <small>*</small></label>
+                    <select id="cc_type" name="gender" class="form-control required" aria-required="true">
+                    <option value="">Choose Option</option>
                       <option value="Male">Male</option>
                       <option value="Female">Female</option>
                     </select>
@@ -123,6 +124,7 @@ if($message != ""){
                   <div class="form-group">
                     <label>Job Post <small>*</small></label>
                     <select name="f_post" class="form-control required" aria-required="true">
+                    <option value="">Choose Option</option>
                       <option value="Lecturer">Lecturer</option>
                       <option value="Administration">Administration</option>
                       <option value="Other">Other</option>

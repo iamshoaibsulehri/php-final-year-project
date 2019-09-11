@@ -77,7 +77,9 @@ if(isset($form_validation) == "validation"){
     ?>
 	<script src="<?php echo base_url() ?>templates/front/js/validations/jquery.validate.js"></script>
     <script src="<?php echo base_url() ?>templates/front/js/validations/custom-validation.js"></script>
+    
     <?php
+
 }
 ?>
 <?php

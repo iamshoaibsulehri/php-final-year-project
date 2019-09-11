@@ -1,3 +1,19 @@
+
+<?php
+$message = $this->session->flashdata('message_name');
+if($message != ""){
+            ?>
+        <div class="alert alert-success" style="color:red; text-align:center; font-weight:bold;">
+  <?php echo $message; ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php
+}
+?>
+
+
 <section class="inner-header divider layer-overlay overlay-theme-colored-7" style=" background-image: url(<?php echo base_url()?>templates/front/images/bg/bg1.jpg);">
       <div class="container pt-120 pb-60">
         <!-- Section Content -->
@@ -74,42 +90,45 @@
             
               <!-- Contact Form -->
               <form id="contact_form" name="contact_form" class="contact-form-transparent" method="POST" >
+              <fieldset>
                 <div class="row">
                   <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group required">
                       <label>Name <small>*</small></label>
-                      <input name="name" class="form-control" type="text" placeholder="Enter Name" required="" aria-required="true">
+                      <input name="name" class="form-control required" type="text" placeholder="Enter Name" title="This Field is Required">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
                       <label>Email <small>*</small></label>
-                      <input name="email" class="form-control required email" type="email" placeholder="Enter Email" aria-required="true">
+                      <input name="email" class="form-control required email" type="email" placeholder="Enter Email" title="This Field is Required">
                     </div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-sm-6">
-                    <div class="form-group">
+                    <div class="form-group required">
                       <label>Subject <small>*</small></label>
-                      <input name="subject" class="form-control required" type="text" placeholder="Enter Subject" aria-required="true">
+                      <input name="subject" class="form-control required" type="text" placeholder="Enter Subject" title="This Field is Required">
                     </div>
                   </div>
                   <div class="col-sm-6">
                     <div class="form-group">
-                      <label>Phone</label>
+                      <label>Phone </label>
                       <input name="phone" class="form-control" type="text" placeholder="Enter Phone">
                     </div>
                   </div>
                 </div>
-                <div class="form-group">
+                <div class="form-group required">
                   <label>Message</label>
-                  <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message" aria-required="true"></textarea>
+                  <label>Subject <small>*</small></label>
+                  <textarea name="form_message" class="form-control required" rows="5" placeholder="Enter Message" title="This Field is Required"></textarea>
                 </div>
                 <div class="form-group">
-                  <input name="form_botcheck" class="form-control" >
-                  <button type="submit" class="btn btn-dark btn-theme-colored btn-flat btn-block" >Send your message</button>
+               
+                  <button type="submit" name="buttoncontact" id="buttoncontact" class="btn btn-dark btn-theme-colored btn-flat btn-block" >Send your message</button>
                 </div>
+                </fieldset>
               </form><br><br>
               <p>
               <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3366.2891870359845!2d74.51207491465577!3d32.46495600713937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391ec1fa58d5be41%3A0x4798a62d873730fd!2sUniversity+of+Sialkot(USKT)!5e0!3m2!1sen!2s!4v1563143546373!5m2!1sen!2s" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -120,5 +139,4 @@
       </div>
                 
                 
-
-    </section>
+  

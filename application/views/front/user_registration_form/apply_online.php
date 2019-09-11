@@ -566,8 +566,8 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                     <div class="form-group required">
                       <label class="col-md-5 control-label required" style="margin-top: 11px;" for="occupation">Occupation </label>
                       <div class="col-md-7">
-                        <select class="form-control required" value="<?php echo $p_detail['p_occupation']?>" id="Occupation" name="occupation" title="This field is required">
-                          <option value="">--- Select ---</option>
+                        <select class="form-control required " value="<?php echo $p_detail['p_occupation']?>" id="Occupation" name="occupation" title="This field is required">
+                        <option value="">Choose Option</option>
                           <option <?php if($p_detail['p_occupation'] ==  "Business"){ echo "selected"; } ?> value="Business">Business</option>
                           <option  <?php if($p_detail['p_occupation'] ==  "Employed"){ echo "selected"; } ?> value="Employed">Employed</option>
                           <option  <?php if($p_detail['p_occupation'] ==  "Retired"){ echo "selected"; } ?> value="Retired">Retired</option>
@@ -601,8 +601,8 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                         <label class="col-md-5 control-label required" style="margin-top: 11px;" for="Relation">Relation</label>
                         <div class="col-md-7">
                        
-                          <select id="relation"  class="form-control required" name="relation" title="This Field is required">
-                          <option value="">-- Select --</option>
+                          <select id="relation"  class="form-control required " name="relation" title="This Field is required">
+                          <option value="">Choose Option</option>
                           <?php
                           if($p_detail['p_relation']){
                             ?>
@@ -657,8 +657,8 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                         <label class="col-md-5 control-label" style="margin-top: 11px;" for="Relation ">Relation </label>
                         <div class="col-md-7">
                          
-                          <select id="relationship" name = "e_relation" class="form-control" id="e_relation"> 
-                            <option value="">-- Select --</option> 
+                          <select id="relationship" name = "e_relation" class="form-control required " id="e_relation"> 
+                          <option value="">Choose Option</option>
                             <option <?php if($p_detail['e_relation'] ==  "father"){ echo "selected"; } ?> value="father">Father</option> 
                             <option <?php if($p_detail['e_relation'] ==  "mother"){ echo "selected"; } ?> value="mother">Mother</option> 
                             <option <?php if($p_detail['e_relation'] ==  "guardian"){ echo "selected"; } ?> value="guardian">Guardian</option> 
@@ -732,8 +732,8 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                     <div class="form-group">
                       <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="result">Result Status</label>
                       <div class="col-md-7">
-                        <select class="form-control" data-val="true"   id="result" name="result">
-                          <option value="0">--- Select ---</option>
+                        <select class="form-control required Error" data-val="true"   id="result" name="result">
+                        <option value="">Choose Option</option>
                           <option value="Awaiting">Awaiting</option>
                           <option value="Declared">Declared</option>
                         </select>
@@ -752,8 +752,9 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                       <div class="col-md-7">
                         <select class="form-control" data-val="true"   id="qaulification" name="qaulification">
                           <option value="0">--- Select ---</option>
-                          <option value="Male">Q1</option>
-                          <option value="Female">Q2</option>
+                          <option value="Matric">Q2</option>
+                          <option value="Inter">inter </option>
+                          <option value="BSC">BSC</option>
                         </select>
                       </div>
                     </div>
@@ -980,6 +981,7 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                   </div>
                 </div>
               </div>
+
                <div class="row2">
                 <div class="row">
                   <div class="col-md-6">
@@ -1000,10 +1002,53 @@ $("#state_select").html('<option value="<?php echo $p_detail['state']; ?>"><?php
                   <!-- Text input-->
                   <div class="col-md-6">
                     
+                  <div class="form-group">
+                      <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="Program">Select Program</label>
+                      <div class="col-md-7">
+                        <select class="form-control" data-val="true"   id="Program1" name="program1">
+                        <?php echo $program = $this->db->get('program')->result_array();
+                         foreach($program as $pro){
+                         ?>
+                            <option value="<?php echo $pro['p_id'] ?>"><?php echo $pro['p_name']?></option>
+                       <?php
+                       }   ?>
+                        </select>
+                      </div>
+                    </div>
+
+
                   </div>
                 </div>
               </div>
-              <div class="row2"> </div>
+              <div class="row2">
+              
+              <div class="row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label class="col-md-5 control-label" style="margin-top: 11px; text-align:right" for="Program">Select Program</label>
+                      <div class="col-md-7">
+                        <select class="form-control" data-val="true"   id="Program2" name="program2">
+                        <?php echo $program = $this->db->get('program')->result_array();
+                         foreach($program as $pro){
+                         ?>
+                            <option value="<?php echo $pro['p_id'] ?>"><?php echo $pro['p_name']?></option>
+                       <?php
+                       }   ?>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Text input-->
+                  <div class="col-md-6">
+                    
+             
+
+
+                  </div>
+                </div>
+              
+              
+               </div>
             </div>
             <div class="row">
               <div class="col-sm-6"></div>

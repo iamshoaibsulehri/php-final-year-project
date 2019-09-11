@@ -253,6 +253,8 @@ $(function() {
             url: $url,
             success: function(data) {
             $("#Program").html(data);
+            $("#Program1").html(data);
+            $("#Program2").html(data);
             }
         });
         });
@@ -262,4 +264,23 @@ $(function() {
               return false;
             }
           });
+
+          $("#contact_form").validate();
+
+          $("#booking-form").validate();
+
+          $("#job_apply_form").validate();
+
+          $("#registration").validate();
+          
+          $("#student_login").validate();
+
+          $("#login_teacher").validate();
+
+        
 });
+
+
+
+
+

@@ -1,3 +1,19 @@
+
+<?php
+$message = $this->session->flashdata('message_name');
+if($message != ""){
+            ?>
+        <div class="alert alert-success" style="color:red; text-align:center; font-weight:bold;">
+  <?php echo $message; ?>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<?php
+}
+?>
+
+
 <div class="main-content" data-children-count="5">
     <!-- Section: inner-header -->
     <section class="inner-header divider layer-overlay overlay-theme-colored-7" style="background-image: url(<?php echo base_url()?>templates/front/images/bg/event.jpg);">
@@ -98,25 +114,25 @@
             <form id="booking-form" name="booking-form" action="" method="POST" enctype="multipart/form-data" novalidate="novalidate">
               <div class="row">
                 <div class="col-sm-12">
-                  <div class="form-group">
-                    <input type="text" placeholder="Enter Name" name="register_name" required="" class="form-control" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-2">
+                  <div class="form-group required">
+                    <input type="text" placeholder="Enter Name" name="register_name" class="form-control required" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-2">
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <input type="text" placeholder="Enter Email" name="register_email" class="form-control" required="" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-3">
+                  <div class="form-group required">
+                    <input type="text" placeholder="Enter Email" name="register_email" class="form-control required" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-3">
                   </div>
                 </div>
                 <div class="col-sm-6">
-                  <div class="form-group">
-                    <input type="text" placeholder="Enter Phone" name="register_phone" class="form-control" required="" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-4">
+                  <div class="form-group required">
+                    <input type="text" placeholder="Enter Phone" name="register_phone" class="form-control required" aria-required="true" data-kwimpalastatus="alive" data-kwimpalaid="1558123254428-4">
                   </div>
                 </div>
                 
                 <div class="col-sm-12">
                   <div class="form-group text-center">
                   	<input name="form_botcheck" class="form-control" type="hidden" value="">
-                    <button data-loading-text="Please wait..." class="btn btn-dark btn-theme-colored btn-sm btn-block mt-20 pt-10 pb-10" type="submit">Register now</button>
+                    <button class="btn btn-dark btn-theme-colored btn-sm btn-block mt-20 pt-10 pb-10" type="submit">Register now</button>
                   </div>
                 </div>
               </div>
